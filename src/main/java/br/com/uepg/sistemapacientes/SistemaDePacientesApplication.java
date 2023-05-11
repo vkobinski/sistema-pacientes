@@ -2,6 +2,7 @@ package br.com.uepg.sistemapacientes;
 
 import br.com.uepg.sistemapacientes.models.Enums.*;
 import br.com.uepg.sistemapacientes.models.cEndereco;
+import br.com.uepg.sistemapacientes.models.cPaciente;
 import br.com.uepg.sistemapacientes.models.cPessoa;
 import br.com.uepg.sistemapacientes.repositories.*;
 import org.hibernate.Hibernate;
@@ -27,7 +28,7 @@ public class SistemaDePacientesApplication {
 
 	@Bean
 	CommandLineRunner init(PessoaRepository pessoaRepository, EnderecoRepository enderecoRepository, TipoRecursoRepository recursoRepository, TipoMaterialRepository tipoMaterialRepository, TipoCabeloRepository tipoCabeloRepository,
-							TipoAlimentoRepository tipoAlimentoRepository, EspecialidadeRepository especialidadeRepository) {
+							TipoAlimentoRepository tipoAlimentoRepository, EspecialidadeRepository especialidadeRepository, PacienteRepository pacienteRepository) {
 		return (args) -> {
 
 
@@ -82,6 +83,14 @@ public class SistemaDePacientesApplication {
 
 				especialidadeRepository.save(especialidade);
 			}
+
+			cPaciente paciente = new cPaciente();
+			paciente.setNome("Maria");
+			pacienteRepository.save(paciente);
+
+			paciente = new cPaciente();
+			paciente.setNome("Pedro");
+			pacienteRepository.save(paciente);
 
 
 

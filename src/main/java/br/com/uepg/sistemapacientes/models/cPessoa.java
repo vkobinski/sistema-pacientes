@@ -3,7 +3,7 @@ package br.com.uepg.sistemapacientes.models;
 import br.com.uepg.sistemapacientes.models.Enums.EstadoCivil;
 import br.com.uepg.sistemapacientes.models.Enums.SituacaoSocioeconomica;
 import jakarta.persistence.*;
-import lombok.ToString;
+import lombok.*;
 
 import java.sql.Date;
 import java.util.HashSet;
@@ -12,6 +12,10 @@ import java.util.Set;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @ToString
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class cPessoa {
 
     @Id
@@ -43,6 +47,7 @@ public class cPessoa {
     @JoinTable(name = "pessoa_endereco",
             joinColumns = { @JoinColumn(name = "pessoa_id") },
             inverseJoinColumns = { @JoinColumn(name = "endereco_id") })
+    @ToString.Exclude
     private Set<cEndereco> enderecos = new HashSet<>();
 
     @Column(length = 11)

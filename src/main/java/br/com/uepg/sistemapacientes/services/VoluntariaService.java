@@ -18,6 +18,10 @@ public class VoluntariaService {
         this.voluntariaRepository = voluntariaRepository;
     }
 
+    public cVoluntaria findVoluntariaById(Long id) {
+        return voluntariaRepository.findById(id).get();
+    }
+
     public cVoluntaria criaVoluntaria(cVoluntaria voluntaria) {
         return voluntariaRepository.save(voluntaria);
     }
