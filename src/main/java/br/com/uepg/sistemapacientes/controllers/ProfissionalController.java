@@ -56,6 +56,11 @@ public class ProfissionalController {
         return ResponseEntity.ok(profissionalService.findProfissionalByNome(nome));
     }
 
+    @PutMapping("/ativo/{id}")
+    public ResponseEntity<cProfissional> alternaAtivoProfissional(@PathVariable (name = "id") Long id)  {
+        return ResponseEntity.ok(profissionalService.alternaAtivoProfissionalById(id));
+    }
+
     @GetMapping("/especialidade/{especialidade}")
     public ResponseEntity<List<cProfissional>> getAllProfissionaisByEspecialidade(@PathVariable(name = "especialidade") Long especialidade) {
         Especialidade especialidadeById = especialidadeService.findEspecialidadeById(especialidade);

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>
+        Cadastrar Familiar
+    </h2>
+
+    <iframe id="pessoaFrame" src="../pessoa/cadastraPessoa.html" width="100%" height="400px" frameborder="0"></iframe>
+    <div>
+        <div>
+            <label for="grauParentesco">Grau de Parentesco:</label>
+            <select id="grauParentesco">
+                <option>1° Grau</option>
+                <option>2° Grau</option>
+                <option>3° Grau</option>
+            </select>
+        </div>
+        <div>
+            <label for="escolaridade">Grau de Escolaridade:</label>
+            <select id="escolaridade">
+                <option>Educação infantil</option>
+                <option>Fundamental</option>
+                <option>Médio</option>
+                <option>Superior (Graduação)</option>
+                <option>Pós-graduação</option>
+                <option>Mestrado</option>
+                <option>Doutorado</option>
+                <option>Escola</option>
+            </select>
+        </div>
+    </div>
+
+    <iframe id="buscaAtendido" src="../atendido/buscaAtendido.html" width="100%" height="400px" frameborder="0"></iframe>
+
+    <button id="cadastrar">
+        Cadastrar
+    </button>
+    
+</body>
+<script src="cadastraFamiliar.js"></script>
+</html>

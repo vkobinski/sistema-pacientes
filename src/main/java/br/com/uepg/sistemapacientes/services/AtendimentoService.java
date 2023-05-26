@@ -36,4 +36,8 @@ public class AtendimentoService {
         return atendimentoRepository.save(atendimento);
     }
 
+    public void deletaAtendimento(Long idAtendimento) {
+        atendimentoRepository.deleteById(idAtendimento);
+    }
+
 }

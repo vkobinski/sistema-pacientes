@@ -27,5 +27,9 @@ public class EnderecoService {
         return enderecoRepository.save(endereco);
     }
 
+    public cEndereco getEnderecoById(Long id) {
+        return enderecoRepository.getReferenceById(id);
+    }
+
 
 }

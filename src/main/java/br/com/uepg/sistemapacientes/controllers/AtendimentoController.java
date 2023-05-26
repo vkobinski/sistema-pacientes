@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1/atendimento")
@@ -39,7 +42,13 @@ public class AtendimentoController {
 
         atendimento.setAtendido(atendidoById);
         atendimento.setProfissional(profissionalById);
-        atendimento.setData(wrapper.getData());
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(wrapper.getData().getTime());
+        cal.add(Calendar.HOUR, 3);
+        Timestamp later = new Timestamp(cal.getTime().getTime());
+
+        atendimento.setData(later);
 
         atendimento = atendimentoService.criaAtendimento(atendimento);
 
@@ -49,6 +58,12 @@ public class AtendimentoController {
     @GetMapping
     public ResponseEntity<List<cAtendimento>> getAtendimentos() {
         return ResponseEntity.ok(atendimentoService.getAtendimentos());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deletaAtendimento(@PathVariable(name = "id") Long id) {
+        atendimentoService.deletaAtendimento(id);
+        return ResponseEntity.ok(true);
     }
 
 

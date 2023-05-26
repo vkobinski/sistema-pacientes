@@ -7,28 +7,36 @@
     <title>Document</title>
 </head>
 <body>
-    
     <div>
-        <table id="tabela-profissionais" class="tg">
-            <tr>
-                <th>ID:</th>
-                <th>Nome:</th>
-                <th>Especialidade</th>
-                <th>Data de Cadastro</th>
-                <th>Status</th>
-                <th>Desativar</th>
-            </tr>
-        </table>
+           <table id="tabela-profissionais" class="tg">
+               <tr>
+                   <th>ID</th>
+                   <th>Nome</th>
+                   <th>Especialidade</th>
+                   <th>Data de Cadastro</th>
+                   <th>Ativo</th>
+                   <th>Adicionar</th>
+               </tr>
+           </table>
     </div>
 
     <div>
-        <a href="/profissional/cadastraProfissional.html">
-            <button>Cadastrar</button>
-        </a>
+        <div id="queryDiv">
+            <input id='query' type='text'/>
+        </div>
+        <select id="tipo">
+            <option>Nome</option>
+            <option>Especialidade</option>
+        </select>
     </div>
+
+    <div>
+        <button id="buscar">Buscar</button>
+    </div>
+
+
+
 </body>
-<script src="visualizaProfissionais.js"></script>
-<script src="../script.js"></script>
 
 <style type="text/css">
     .tg  {border-collapse:collapse;border-spacing:0;}
@@ -38,5 +46,5 @@
       font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
     .tg .tg-0lax{text-align:left;vertical-align:top}
 </style>
-
+<script src="buscaProfissional.js"></script>
 </html>

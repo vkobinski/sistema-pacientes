@@ -5,6 +5,7 @@ import br.com.uepg.sistemapacientes.models.cAlimento;
 import br.com.uepg.sistemapacientes.models.cProfissional;
 import br.com.uepg.sistemapacientes.repositories.ProfissionalRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,19 @@ public class ProfissionalService {
 
     public cProfissional createProfissional(cProfissional profissional) {
         return profissionalRepository.save(profissional);
+    }
+
+    @Transactional
+    public cProfissional alternaAtivoProfissionalById(Long id) {
+        Optional<cProfissional> profissionalOp = profissionalRepository.findById(id);
+
+        if(profissionalOp.isPresent()){
+            boolean status = profissionalOp.get().isAtivo();
+            profissionalOp.get().setAtivo(!status);
+            return profissionalOp.get();
+        }
+
+        throw new EntityNotFoundException("Não existe profissional com ID: " + id);
     }
 
     public cProfissional findProfissionalById(Long id) {

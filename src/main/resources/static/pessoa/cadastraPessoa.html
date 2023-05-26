@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <div>
+            <div>
+                <label for="rg">RG:</label>
+                <input id="rg" type="text" />
+            </div>
+            <div>
+                <label for="cpf">CPF:</label>
+                <input id="cpf" oninput="formatCPF()" maxlength="14" type="text" />
+                <input type="hidden" id="cpf-value">
+            </div>
+            <div>
+                <label for="nome">Nome:</label>
+                <input id="nome" type="text" />
+            </div>
+            <div>
+                <label for="sexo">Sexo:</label>
+                <select id="sexo">
+                    <option>F</option>
+                    <option>M</option>
+                </select>
+            </div>
+            <div>
+                <label for="datanascimento">Data de Nascimento:</label>
+                <input id="datanascimento" type="date" />
+            </div>
+            <div>
+                <label for="profissao">Profissão:</label>
+                <input id="profissao" type="text" />
+            </div>
+            <div>
+                <label for="redesSociais">Redes Sociais:</label>
+                <select id="redesSociais">
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input id="telefone" oninput="formatCellphone()" type="text"
+                    maxlength="12">
+                <input type="hidden" id="telefone-value">
+            </div>
+            <div>
+                <label for="socioeconomica">Situação Socioeconômica:</label>
+                <select id="socioeconomica">
+                </select>
+            </div>
+            <div>
+                <label for="estadoCivil">Estado Civil:</label>
+                <select id="estadoCivil">
+                    <option>Solteiro</option>
+                    <option>Casado</option>
+                    <option>Separado</option>
+                    <option>Divorciado</option>
+                    <option>Viúvo</option>
+                </select>
+            </div>
+            <iframe id="enderecoFrame" src="../endereco/cadastraEndereco.html"
+                width="100%">
+
+            </iframe>
+        </div>
+
+    </body>
+    <script>
+    function formatCPF() {
+      var input = document.getElementById('cpf');
+      var hiddenInput = document.getElementById('cpf-value');
+
+      var inputValue = input.value;
+      var digitsOnly = inputValue.replace(/\D/g, '');
+
+      var isBackspace = (event && event.inputType === 'deleteContentBackward');
+
+      if (isBackspace) {
+        digitsOnly = digitsOnly.slice(0, -1);
+      }
+
+      var cpfGroups = digitsOnly.match(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/);
+
+      if (cpfGroups) {
+        var formattedCPF = cpfGroups[1] + '.' + cpfGroups[2] + '.' + cpfGroups[3] + '-' + cpfGroups[4];
+        input.value = formattedCPF;
+      }
+
+      hiddenInput.value = digitsOnly;
+    }
+
+    function formatCellphone() {
+        var input = document.getElementById('telefone');
+        var hiddenInput = document.getElementById('telefone-value');
+        var inputValue = input.value;
+
+        var digitsOnly = inputValue.replace(/\D/g, '');
+
+        var formattedCellphone;
+        formattedCellphone = digitsOnly.replace(/^(\d{2})(\d{1})(\d{4})(\d{4})$/, '($1) $2 $3-$4');
+
+        input.value = formattedCellphone;
+        hiddenInput.value = digitsOnly;
+}
+
+</script>
+    <script src="cadastraPessoa.js"></script>
+</html>

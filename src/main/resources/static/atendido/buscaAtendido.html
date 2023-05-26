@@ -7,28 +7,35 @@
     <title>Document</title>
 </head>
 <body>
-    
+
     <div>
-        <table id="tabela-profissionais" class="tg">
+        <table id="tabela-atendidos" class="tg">
             <tr>
-                <th>ID:</th>
-                <th>Nome:</th>
-                <th>Especialidade</th>
-                <th>Data de Cadastro</th>
-                <th>Status</th>
-                <th>Desativar</th>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>RG</th>
+                <th>CPF</th>
+                <th>Adicionar</th>
             </tr>
         </table>
     </div>
 
     <div>
-        <a href="/profissional/cadastraProfissional.html">
-            <button>Cadastrar</button>
-        </a>
+        <input type="text" id="query"/>
+        <select id="tipo">
+            <option>Nome</option>
+            <option>RG</option>
+            <option>CPF</option>
+        </select>
     </div>
+
+    <div>
+        <button id="buscar">Buscar</button>
+    </div>
+
+    
 </body>
-<script src="visualizaProfissionais.js"></script>
-<script src="../script.js"></script>
+<script src="/atendido/buscaAtendido.js"></script>
 
 <style type="text/css">
     .tg  {border-collapse:collapse;border-spacing:0;}

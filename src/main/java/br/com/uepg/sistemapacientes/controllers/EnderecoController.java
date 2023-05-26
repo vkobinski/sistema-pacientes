@@ -35,4 +35,9 @@ public class EnderecoController {
     public ResponseEntity<cEndereco> createEndereco(@RequestBody cEndereco endereco) {
         return ResponseEntity.ok(enderecoService.createEndereco(endereco));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<cEndereco> getEnderecoById(@PathVariable(name = "id") Long id) {
+        return ResponseEntity.ok(enderecoService.getEnderecoById(id));
+    }
 }
