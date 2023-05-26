@@ -1,23 +1,21 @@
 package br.com.uepg.sistemapacientes.models;
 
 
-import br.com.uepg.sistemapacientes.models.Enums.Escolaridade;
 import br.com.uepg.sistemapacientes.models.Enums.GrauParentesco;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class cFamiliar extends cPessoa{
 
     @ManyToOne
     @JoinColumn(name = "ID_Atendido")
     private cAtendido atendido;
 
-    @ManyToOne
-    @JoinColumn(name = "grau_parentesco")
-    private GrauParentesco grauParentesco;
+    private String grauParentesco;
 
-    @ManyToOne
-    @JoinColumn(name = "escolaridade")
-    private Escolaridade escolaridade;
 }
 

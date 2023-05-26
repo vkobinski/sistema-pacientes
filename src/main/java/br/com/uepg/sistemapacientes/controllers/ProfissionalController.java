@@ -50,4 +50,15 @@ public class ProfissionalController {
 
         return ResponseEntity.ok(profissionalService.createProfissional(profissional));
     }
+
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<cProfissional> getProfissionalByNome(@PathVariable(name = "nome") String nome) {
+        return ResponseEntity.ok(profissionalService.findProfissionalByNome(nome));
+    }
+
+    @GetMapping("/especialidade/{especialidade}")
+    public ResponseEntity<List<cProfissional>> getAllProfissionaisByEspecialidade(@PathVariable(name = "especialidade") Long especialidade) {
+        Especialidade especialidadeById = especialidadeService.findEspecialidadeById(especialidade);
+        return ResponseEntity.ok(profissionalService.findProfissionalByEspecialidade(especialidadeById));
+    }
 }

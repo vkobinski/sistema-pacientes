@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.minidev.json.annotate.JsonIgnore;
+import org.springframework.boot.jackson.JsonComponent;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -41,8 +43,5 @@ public class cEndereco {
 
     @Column(length = 8)
     private String cep;
-
-    @ManyToMany(mappedBy = "enderecos", fetch = FetchType.LAZY)
-    private Set<cPessoa> pessoas = new HashSet<>();
 
 }

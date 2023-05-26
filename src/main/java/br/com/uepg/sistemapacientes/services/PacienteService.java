@@ -1,16 +1,14 @@
 package br.com.uepg.sistemapacientes.services;
 
+import br.com.uepg.sistemapacientes.models.cEndereco;
 import br.com.uepg.sistemapacientes.models.cPaciente;
-import br.com.uepg.sistemapacientes.models.cVisita;
-import br.com.uepg.sistemapacientes.models.cVoluntaria;
+import br.com.uepg.sistemapacientes.repositories.EnderecoRepository;
 import br.com.uepg.sistemapacientes.repositories.PacienteRepository;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,10 +17,12 @@ import java.util.Optional;
 public class PacienteService {
 
     private final PacienteRepository pacienteRepository;
+    private final EnderecoRepository enderecoRepository;
 
     @Autowired
-    public PacienteService(PacienteRepository pacienteRepository) {
+    public PacienteService(PacienteRepository pacienteRepository, EnderecoRepository enderecoRepository) {
         this.pacienteRepository = pacienteRepository;
+        this.enderecoRepository = enderecoRepository;
     }
 
     public List<cPaciente> getPacientes() {

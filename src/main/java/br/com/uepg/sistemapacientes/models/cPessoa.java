@@ -1,13 +1,11 @@
 package br.com.uepg.sistemapacientes.models;
 
-import br.com.uepg.sistemapacientes.models.Enums.EstadoCivil;
 import br.com.uepg.sistemapacientes.models.Enums.SituacaoSocioeconomica;
 import jakarta.persistence.*;
 import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
 
 import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -24,6 +22,9 @@ public class cPessoa {
 
     @Column(length = 9)
     private String rg;
+
+    @Column
+    private Boolean ativo;
 
     @Column(length = 11)
     private String cpf;
@@ -43,23 +44,11 @@ public class cPessoa {
     @Column
     private Boolean redesSociais;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "pessoa_endereco",
-            joinColumns = { @JoinColumn(name = "pessoa_id") },
-            inverseJoinColumns = { @JoinColumn(name = "endereco_id") })
-    @ToString.Exclude
-    private Set<cEndereco> enderecos = new HashSet<>();
+    @OneToOne
+    private cEndereco endereco;
 
     @Column(length = 11)
     private String telefone;
-
-    public void addEndereco(cEndereco endereco) {
-        this.enderecos.add(endereco);
-    }
-
-    public Set<cEndereco> getEnderecos() {
-        return enderecos;
-    }
 
     @ManyToOne
     private cCurso curso;
@@ -68,7 +57,14 @@ public class cPessoa {
     @JoinColumn(name = "situacao_socioeconomica")
     private SituacaoSocioeconomica socioeconomica;
 
-    @ManyToOne
-    @JoinColumn(name = "estado_civil")
-    private EstadoCivil estadoCivil;
+    @Column
+    private String estadoCivil;
+
+    public cEndereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(cEndereco endereco) {
+        this.endereco = endereco;
+    }
 }

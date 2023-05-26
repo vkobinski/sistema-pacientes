@@ -28,7 +28,8 @@ public class SistemaDePacientesApplication {
 
 	@Bean
 	CommandLineRunner init(PessoaRepository pessoaRepository, EnderecoRepository enderecoRepository, TipoRecursoRepository recursoRepository, TipoMaterialRepository tipoMaterialRepository, TipoCabeloRepository tipoCabeloRepository,
-							TipoAlimentoRepository tipoAlimentoRepository, EspecialidadeRepository especialidadeRepository, PacienteRepository pacienteRepository) {
+							TipoAlimentoRepository tipoAlimentoRepository, EspecialidadeRepository especialidadeRepository, PacienteRepository pacienteRepository, SituacaoSocioeconomicaRepository situacaoSocioeconomicaRepository,
+						   EstagioDoencaRepository estagioDoencaRepository, QuartoHospedagemRepository quartoHospedagemRepository, TipoRefeicaoRepository tipoRefeicaoRepository) {
 		return (args) -> {
 
 
@@ -36,7 +37,7 @@ public class SistemaDePacientesApplication {
 			enderecoRepository.save(endereco);
 
 			cPessoa pessoa = new cPessoa();
-			pessoa.addEndereco(endereco);
+			pessoa.setEndereco(endereco);
 			pessoaRepository.save(pessoa);
 
 			List<String> tipos = Arrays.asList("Medicamento", "Roupa", "Material", "Cabelo", "Alimento");
@@ -92,8 +93,21 @@ public class SistemaDePacientesApplication {
 			paciente.setNome("Pedro");
 			pacienteRepository.save(paciente);
 
+			SituacaoSocioeconomica socioeconomica = new SituacaoSocioeconomica();
+			socioeconomica.setNome("Teste");
+			situacaoSocioeconomicaRepository.save(socioeconomica);
 
+			EstagioDoenca estagioDoenca = new EstagioDoenca();
+			estagioDoenca.setNome("Teste");
+			estagioDoencaRepository.save(estagioDoenca);
 
+			QuartoHospedagem quartoHospedagem = new QuartoHospedagem();
+			quartoHospedagem.setNome("15");
+			quartoHospedagemRepository.save(quartoHospedagem);
+
+			TipoRefeicao tipoRefeicao = new TipoRefeicao();
+			tipoRefeicao.setNome("Vegetariana");
+			tipoRefeicaoRepository.save(tipoRefeicao);
 		};
 	}
 }
