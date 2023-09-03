@@ -1,60 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body class="bodyClass">
+<div class="formaEnvolta">
+    <div>
         <div>
-            <div>
-                <label for="logradouro">Logradouro:</label>
-                <input type="text" id="logradouro" />
-            </div>
-            <div>
-                <label for="bairro">Bairro:</label>
-                <input type="text" id="bairro"/>
-            </div>
-            <div>
-                <label for="complemento">Complemento:</label>
-                <input type="text" id="complemento"/>
-            </div>
-            <div>
-                <label for="ponto-referencia">Ponto de Referência:</label>
-                <input type="text" id="ponto-referencia"/>
-            </div>
-            <div>
-                <label for="cidade">Cidade:</label>
-                <input type="text" id="cidade"/>
-            </div>
-            <div>
-                <label for="estado">Estado:</label>
-                <input type="text" id="estado" />
-            </div>
-            <div>
-                <label for="cep">CEP:</label>
-                <input type="text" oninput="formatCEP()" id="cep" />
-                <input type="hidden" id="cep-value" />
+            <div class="inputBoth">
+                <label class="inputText" for="logradouro">Logradouro</label>
+                <input class="inputField" type="text" id="logradouro" />
             </div>
         </div>
 
-    </body>
-    <script>
-        function formatCEP() {
-            var input = document.getElementById('cep');
-            var hiddenInput = document.getElementById('cep-value');
-            var inputValue = input.value;
-        
-            // Remove any non-digit characters from the input
-            var digitsOnly = inputValue.replace(/\D/g, '');
-        
-            // Apply the CEP format
-            var formattedCEP = digitsOnly.replace(/^(\d{5})(\d{3})$/, '$1-$2');
-        
-            input.value = formattedCEP;
-            hiddenInput.value = digitsOnly;
-        }
-    </script>
-    <script src="cadastraEndereco.js"></script>
+        <div>
+            <div class="inputBoth">
+                <label class="inputText" for="bairro">Bairro</label>
+                <input class="inputField" type="text" id="bairro" />
+            </div>
+        </div>
+
+        <div>
+            <div class="inputBoth">
+                <label class="inputText" for="complemento">Complemento</label>
+                <input class="inputField" type="text" id="complemento" />
+            </div>
+        </div>
+
+        <div>
+            <div class="inputBoth">
+                <label class="inputText" for="ponto-referencia">Ponto de Referência</label>
+                <input class="inputField" type="text" id="ponto-referencia" />
+            </div>
+        </div>
+
+        <div>
+            <div class="inputBoth">
+                <label class="inputText" for="cidade">Cidade</label>
+                <input class="inputField" type="text" id="cidade" />
+            </div>
+        </div>
+
+        <div>
+            <div class="inputBoth">
+                <label class="inputText" for="estado">Estado</label>
+                <input class="inputField" type="text" id="estado" />
+            </div>
+        </div>
+
+        <div>
+            <div class="inputBoth">
+                <label class="inputText" for="cep">CEP</label>
+            <input class="inputField" type="text" oninput="formatCEP()" id="cep" />
+            <input type="hidden" id="cep-value" />
+            </div>
+        </div>
+
+
+   </div>
+   </div>
+
+</body>
+<script>
+    function formatCEP() {
+        var input = document.getElementById('cep');
+        var hiddenInput = document.getElementById('cep-value');
+        var inputValue = input.value;
+
+        // Remove any non-digit characters from the input
+        var digitsOnly = inputValue.replace(/\D/g, '');
+
+        // Apply the CEP format
+        var formattedCEP = digitsOnly.replace(/^(\d{5})(\d{3})$/, '$1-$2');
+
+        input.value = formattedCEP;
+        hiddenInput.value = digitsOnly;
+    }
+</script>
+<script src="cadastraEndereco.js"></script>
+<link rel="stylesheet" href="cadastraEndereco.css">
+
 </html>
