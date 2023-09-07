@@ -1,0 +1,94 @@
+@font-face {
+  font-family: FontAwesome6Free;
+  src: url("./imagens/Font\ Awesome\ 6\ Free.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: FontAwesome6Free;
+  font-weight: 900;
+  src: url("./imagens/Font\ Awesome\ 6\ Free-Solid-900.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("./imagens/Inter/static/Inter-Regular.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: FontAwesome6Free;
+  font-weight: 700;
+  src: url("./imagens/Inter/static/Inter-Bold.ttf") format("opentype");
+}
+
+.major-square {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 140px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.body-class {
+  background-color: #fffef1;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+.fontawesome {
+  color: #fb9aac;
+  font-family: FontAwesome6Free;
+  font-size: 63px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.clipboard {
+  font-weight: 400;
+}
+
+.imagem {
+  width: 63px;
+  height: 63px;
+}
+
+button {
+  border: 0;
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.minor-block {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffd7de;
+  justify-content: center;
+  align-items: center;
+  border-radius: 45px;
+  width: 218px;
+  height: 217px;
+  margin-right: 60px;
+}
+
+.middle-top-blocks {
+
+    margin-bottom: 60px;
+}
+
+.botoes {
+  margin-top: 20px;
+  color: #fb9aac;
+  text-align: center;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
