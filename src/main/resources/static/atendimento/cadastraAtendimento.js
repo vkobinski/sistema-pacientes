@@ -12,7 +12,6 @@ function getAtendimento() {
 }
 
 document.getElementById("cadastrar").onclick = () => {
-        console.log("teste");
     fetch("/api/v1/atendimento", {
        method: "POST",
        headers: {

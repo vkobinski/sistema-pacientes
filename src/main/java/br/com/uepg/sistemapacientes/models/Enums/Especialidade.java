@@ -8,7 +8,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Especialidade {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idEspecialidade;

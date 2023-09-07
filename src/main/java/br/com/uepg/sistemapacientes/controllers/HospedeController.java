@@ -48,5 +48,10 @@ public class HospedeController {
         return ResponseEntity.ok(hospedeService.getHospedes());
     }
 
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<cHospede> getHospedeById(@PathVariable(name = "id") Long id) {
+        return ResponseEntity.ok(hospedeService.findHospedeById(id));
+    }
+
 
 }

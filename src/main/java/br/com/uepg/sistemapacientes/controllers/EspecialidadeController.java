@@ -32,7 +32,7 @@ public class EspecialidadeController {
     }
 
     @PostMapping
-    public ResponseEntity<Especialidade> createEspecialidade(@RequestBody Especialidade especialidade) throws ParseException {
+    public ResponseEntity<Especialidade> createEspecialidade(@RequestBody Especialidade especialidade) {
         return ResponseEntity.ok(especialidadeService.createEspecialidade(especialidade));
     }
 }

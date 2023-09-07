@@ -48,4 +48,9 @@ public class FamiliarController {
     public ResponseEntity<List<cFamiliar>> getFamiliares() {
         return ResponseEntity.ok(familiarService.getFamiliares());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<cFamiliar> getFamiliarById(@PathVariable Long id) {
+        return ResponseEntity.ok(familiarService.findFamiliarById(id));
+    }
 }

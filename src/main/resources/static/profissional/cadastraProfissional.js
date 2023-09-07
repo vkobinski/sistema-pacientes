@@ -32,7 +32,8 @@ cadastrarBotao.onclick = () => {
         },
         body: JSON.stringify(profissional),
     }).then(response => {
-        console.log(response);
+
+        document.getElementById("cadastrado").style = "";
 
         return response.json();
     }).then(data => {

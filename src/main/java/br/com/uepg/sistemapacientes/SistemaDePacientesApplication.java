@@ -2,22 +2,15 @@ package br.com.uepg.sistemapacientes;
 
 import br.com.uepg.sistemapacientes.models.Enums.*;
 import br.com.uepg.sistemapacientes.models.cEndereco;
-import br.com.uepg.sistemapacientes.models.cPaciente;
 import br.com.uepg.sistemapacientes.models.cPessoa;
 import br.com.uepg.sistemapacientes.repositories.*;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.SessionFactoryBuilder;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootApplication
 public class SistemaDePacientesApplication {
@@ -84,14 +77,6 @@ public class SistemaDePacientesApplication {
 
 				especialidadeRepository.save(especialidade);
 			}
-
-			cPaciente paciente = new cPaciente();
-			paciente.setNome("Maria");
-			pacienteRepository.save(paciente);
-
-			paciente = new cPaciente();
-			paciente.setNome("Pedro");
-			pacienteRepository.save(paciente);
 
 			SituacaoSocioeconomica socioeconomica = new SituacaoSocioeconomica();
 			socioeconomica.setNome("Teste");

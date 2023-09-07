@@ -15,4 +15,6 @@ public class EstagioDoenca {
 
     @Column(length = 30)
     private String nome;
+
+    private boolean ativo = true;
 }

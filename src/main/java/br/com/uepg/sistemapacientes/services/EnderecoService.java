@@ -28,7 +28,7 @@ public class EnderecoService {
     }
 
     public cEndereco getEnderecoById(Long id) {
-        return enderecoRepository.getReferenceById(id);
+        return enderecoRepository.findById(id).get();
     }
 
 

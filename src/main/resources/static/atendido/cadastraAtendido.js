@@ -7,7 +7,9 @@ fetch("/api/v1/estagiodoenca", {
     }).then(data => {
         
         data.forEach(element => {
-            
+
+            if(element['ativo'] == false) return;
+
             let option = document.createElement("option");
             option.text = element['nome'];
 
