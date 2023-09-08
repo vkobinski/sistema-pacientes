@@ -12,18 +12,20 @@
         Cadastrar Familiar
     </h2>
 
+    <div class="major-block">
+
     <iframe id="pessoaFrame" src="../pessoa/cadastraPessoa.html" width="100%" height="1500px" frameborder="0"></iframe>
-    <div>
-        <div>
-            <label for="grauParentesco">Grau de Parentesco:</label>
+    <div class="formaEnvolta">
+        <div class="inputBoth">
+            <label class="inputText" for="grauParentesco">Grau de Parentesco:</label>
             <select id="grauParentesco">
                 <option>1° Grau</option>
                 <option>2° Grau</option>
                 <option>3° Grau</option>
             </select>
         </div>
-        <div>
-            <label for="escolaridade">Grau de Escolaridade:</label>
+        <div class="inputBoth">
+            <label class="inputText" for="escolaridade">Grau de Escolaridade:</label>
             <select id="escolaridade">
                 <option>Educação infantil</option>
                 <option>Fundamental</option>
@@ -35,9 +37,13 @@
                 <option>Escola</option>
             </select>
         </div>
-    </div>
+
 
     <iframe id="buscaAtendido" src="../atendido/buscaAtendido.html" width="100%" height="400px" frameborder="0"></iframe>
+    </div>
+
+
+    </div>
 
     <button id="cadastrar">
         Cadastrar

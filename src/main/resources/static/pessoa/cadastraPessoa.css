@@ -1,58 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
 .enderecoBorder {
-    border: none !important;
-    height: 700px;
- }
+  border: none !important;
+  height: fit-content;
+  padding: 0;
+  display: block;
+  height: 1100px;
+}
+
+.major-block {
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 .bodyClass {
-
-    background-color: #FFFEF1;
+  background-color: #fffef1;
 }
 
 .inputBoth {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 }
 
 .inputText {
-    font-size: 20px;
-    font-family: Inter;
-    font-weight: 400;
-    color: #FB9AAC;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  color: #fb9aac;
+}
+
+select {
+  width: 215px;
+  height: 39px;
+  padding-left: 10px;
+  border: 0;
+  margin-top: 13px;
+  background: #fffef1;
+  background-color: #fffef1;
+  border-radius: 11px;
+  font-family: Inter;
+  font-weight: 400;
+
+  color: #fb9aac;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .formaEnvolta {
-    margin-bottom: 10px;
-    padding-left: 20px;
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 575px;
-    height: 656px;
-    background: #FFD7DE;
-    border-top-left-radius: 46px;
-    border-top-right-radius: 46px;
-    border-bottom-right-radius: 46px;
-    border-bottom-left-radius: 46px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  background: #ffd7de;
+  border-radius: 46px;
 }
 
-
-
 .inputField {
-    width: 286px;
-    height: 39px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 0;
-    margin-top: 13px;
-    background: #FFFEF1;
-    background-color: #FFFEF1;
-    border-radius: 11px;
-    font-size: 20px;
-    font-family: Inter;
-    font-weight: 400;
+  width: 215px;
+  height: 39px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
+  margin-top: 13px;
+  background: #fffef1;
+  background-color: #fffef1;
+  border-radius: 11px;
 
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

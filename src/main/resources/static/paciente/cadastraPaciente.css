@@ -1,10 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
-.major-block {
-    display: flex;
-    flex-direction: row;    
-    width: 100%;
-}
+
 
 .formaEnvolta {
   margin-bottom: 10px;
@@ -13,14 +9,10 @@
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 350px;
-  height: 970px;
+  align-items: flex-start;
+  width: 250px;
   background: #ffd7de;
-  border-top-left-radius: 46px;
-  border-top-right-radius: 46px;
-  border-bottom-right-radius: 46px;
-  border-bottom-left-radius: 46px;
+  border-radius: 46px;
 }
 
 body {
@@ -68,7 +60,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 500px;
   height: fit-content;
   background: #ffd7de;
   border-radius: 46px;
@@ -91,4 +83,14 @@ select {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.titulo {
+
+    color: #FB9AAC;
+    font-family: Inter;
+    font-size: 47px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
 }

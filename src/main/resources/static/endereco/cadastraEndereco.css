@@ -1,50 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap');
-
-.inputText {
-    font-size: 20px;
-    font-family: Inter;
-    font-weight: 400;
-    color: #FB9AAC;
-}
-
-.inputField {
-    width: 286px;
-    height: 39px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 0;
-    margin-top: 13px;
-    background: #FFFEF1;
-    border-radius: 11px;
-    font-size: 20px;
-    font-family: Inter;
-    font-weight: 400;
-
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
 .bodyClass {
+  background-color: #fffef1;
+}
 
-    background-color: #FFFEF1;
+.inputBoth {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.inputText {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  color: #fb9aac;
+}
+
+select {
+  border-right: 20px solid transparent;
+  width: 310px;
+  height: 39px;
+  padding-left: 10px;
+  border: 0;
+  margin-top: 13px;
+  background: #fffef1;
+  background-color: #fffef1;
+  border-radius: 11px;
+  font-family: Inter;
+  font-weight: 400;
+
+  color: #fb9aac;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .formaEnvolta {
-    padding-left: 20px;
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 575px;
-    height: 656px;
-    background: #FFD7DE;
-    border-top-left-radius: 46px;
-    border-top-right-radius: 46px;
-    border-bottom-right-radius: 46px;
-    border-bottom-left-radius: 46px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  height: 970px;
+  background: #ffd7de;
+  border-top-left-radius: 46px;
+  border-top-right-radius: 46px;
+  border-bottom-right-radius: 46px;
+  border-bottom-left-radius: 46px;
 }
 
+.inputField {
+  width: 215px;
+  height: 39px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
+  margin-top: 13px;
+  background: #fffef1;
+  background-color: #fffef1;
+  border-radius: 11px;
 
-.inputBoth {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
+

@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="major-block">
+      <iframe
+        id="pessoaFrame"
+        src="../pessoa/cadastraPessoa.html"
+        width="100%"
+        height="400px"
+        frameborder="0"
+      ></iframe>
 
-    <iframe id="pessoaFrame" src="../pessoa/cadastraPessoa.html" width="100%" height="400px" frameborder="0"></iframe>
-
-    <div>
-        
-        <div>
-            <label for="estagioDoenca">Estágio de Doença:</label>
-            <select id="estagioDoenca">
-            </select>
+      <div class="formaEnvolta">
+        <div class="inputBoth">
+          <label class="inputText" for="estagioDoenca"
+            >Estágio de Doença:</label
+          >
+          <div class="inputRow">
+            <select class="inputField" id="estagioDoenca"></select>
             <a href="/estagio-doenca/estagio-doenca.html">
-            <button>Cadastrar Novo</button>
+              <button>Cadastrar</button>
             </a>
+          </div>
         </div>
-        <div>
-            <label for="tipoCancro">Tipo de Cancro:</label>
-            <input id="tipoCancro" type="text"/>
+        <div class="inputBoth">
+          <label class="inputText" for="tipoCancro">Tipo de Cancro:</label>
+          <input class="inputField" id="tipoCancro" type="text" />
         </div>
-        
+      </div>
     </div>
-    
-</body>
-<script src="cadastraAtendido.js"></script>
+  </body>
+  <script src="cadastraAtendido.js"></script>
+  <link rel="stylesheet" href="cadastraAtendido.css" />
 </html>

@@ -1,32 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
+.enderecoBorder {
+  border: none !important;
+  height: fit-content;
+  padding: 0;
+  display: block;
+  height: 1100px;
+}
+
 .major-block {
-    display: flex;
-    flex-direction: row;    
+
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-.formaEnvolta {
-  margin-bottom: 10px;
-  padding-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 350px;
-  height: 970px;
-  background: #ffd7de;
-  border-top-left-radius: 46px;
-  border-top-right-radius: 46px;
-  border-bottom-right-radius: 46px;
-  border-bottom-left-radius: 46px;
-}
-
-body {
+.bodyClass {
   background-color: #fffef1;
 }
-
 
 .inputBoth {
   display: flex;
@@ -91,4 +83,28 @@ select {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.inputRow {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 140px;
+    height: 43px;
+    background-color: #FB9AAC;
+    border: 0;
+    border-radius: 21px;
+    color: #FFFEF1;
+text-align: center;
+font-family: Inter;
+font-size: 17px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
