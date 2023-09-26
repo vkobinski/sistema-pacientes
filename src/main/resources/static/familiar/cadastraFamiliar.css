@@ -6,9 +6,15 @@
     width: 100%;
 }
 
+.buscaAtendido {
+
+  margin: auto;
+  display: block;
+  margin-top: 20px;
+}
+
 .formaEnvolta {
   margin-bottom: 10px;
-  padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 20px;
   display: flex;
@@ -68,11 +74,13 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: fit-content;
+  width: 350px;
+  height: 1050px;
   background: #ffd7de;
   border-radius: 46px;
+  margin-right: 50px;
 }
+
 
 .inputField {
   width: 215px;
@@ -91,4 +99,37 @@ select {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.titulo {
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 47px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+
+.inputField {
+  width: 215px;
+  height: 39px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
+  margin-top: 13px;
+  background: #fffef1;
+  background-color: #fffef1;
+  border-radius: 11px;
+
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.pessoaFrame {
+  margin-left: 50px;
 }

@@ -1,24 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
-
-
-.formaEnvolta {
-  margin-bottom: 10px;
-  padding-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 250px;
-  background: #ffd7de;
-  border-radius: 46px;
+.enderecoBorder {
+  margin: 0px;
+  padding: 0px !important;
+  border: none !important;
+  height: fit-content;
+  display: block;
+  height: 1100px;
+  margin-left: 50px;
 }
 
-body {
+
+.titulo {
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 47px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  margin-left: 20px;
+}
+
+.major-block {
+
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.bodyClass {
+
   background-color: #fffef1;
+    width: 100%;
+    margin: 0px;
 }
-
 
 .inputBoth {
   display: flex;
@@ -51,8 +68,8 @@ select {
   font-weight: 400;
   line-height: normal;
 }
+
 .formaEnvolta {
-  margin: auto;
   margin-bottom: 10px;
   padding-left: 20px;
   padding-top: 10px;
@@ -61,13 +78,15 @@ select {
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 400px;
+  height: 500px;
   background: #ffd7de;
-  border-top-left-radius: 46px;
-  border-top-right-radius: 46px;
-  border-bottom-right-radius: 46px;
-  border-bottom-left-radius: 46px;
+  border-radius: 46px;
+  margin: auto;
+  margin-top: 50px;
 }
+
+
+
 .inputField {
   width: 215px;
   height: 39px;
@@ -87,14 +106,3 @@ select {
   line-height: normal;
 }
 
-
-
-.titulo {
-
-    color: #FB9AAC;
-    font-family: Inter;
-    font-size: 47px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal; 
-}

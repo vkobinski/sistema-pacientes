@@ -9,7 +9,7 @@
 <body>
     <!-- Medicamento -->
     <div>
-        <h2>Medicamentos</h2>
+        <h2 class="titulo">Medicamentos</h2>
         <table id="tabela-medicamentos" class="tg">
             <tr>
                 <th>ID</th>
@@ -23,7 +23,7 @@
     </div>
     <!-- Roupa-->
     <div>
-        <h2>Roupas</h2>
+        <h2 class="titulo">Roupas</h2>
         <table id="tabela-roupas" class="tg">
             <tr>
                 <th>ID</th>
@@ -36,7 +36,7 @@
 
     <!-- Material-->
     <div>
-        <h2>Material</h2>
+        <h2 class="titulo">Material</h2>
         <table id="tabela-material" class="tg">
             <tr>
                 <th>ID</th>
@@ -51,7 +51,7 @@
 
     <!-- Cabelo -->
     <div>
-        <h2>Cabelo</h2>
+        <h2 class="titulo">Cabelo</h2>
         <table id="tabela-cabelo" class="tg">
             <tr>
                 <th>ID</th>
@@ -65,7 +65,7 @@
 
     <!-- Alimento -->
     <div>
-        <h2>Alimento</h2>
+        <h2 class="titulo">Alimento</h2>
         <table id="tabela-alimento" class="tg">
             <tr>
                 <th>ID</th>
@@ -78,18 +78,111 @@
     </div>
 
     <a href="/recurso/cadastraRecurso.html">
-        <button>Cadastrar</button>
+        <button class="inputField">Cadastrar</button>
     </a>
 
 </body>
 
 <style type="text/css">
-    .tg  {border-collapse:collapse;border-spacing:0;}
-    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-      overflow:hidden;padding:10px 5px;word-break:normal;}
-    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-    .tg .tg-0lax{text-align:left;vertical-align:top}
+   
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+
+
+.tg {
+  border-collapse: collapse;
+  border-spacing: 20;
+  border-radius: 46px 46px 0px 0px;
+  background: #fb9aac;
+  color: #fffef1;
+  font-family: Inter;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  width: 300px;
+}
+
+.tg td {
+  border-color: white;
+  border-style: solid;
+  border-width: 5px;
+  padding: 10px 5px;
+  word-break: normal;
+
+  color: #fffef1;
+  font-family: Inter;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+body {
+
+  background-color: #fffef1;
+}
+
+
+.tg th {
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+
+
+  color: #fffef1;
+  font-family: Inter;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.tg .tg-0lax {
+  text-align: left;
+  vertical-align: top;
+}
+
+.titulo {
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 47px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.titulo2 {
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.inputField {
+  width: 215px;
+  height: 39px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
+  margin-top: 13px;
+  background: #fb9aac;
+  border-radius: 11px;
+
+  color: #fffef1;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  margin-bottom: 30px;
+}
+
+
 </style>
 
 <script src="../script.js"></script>

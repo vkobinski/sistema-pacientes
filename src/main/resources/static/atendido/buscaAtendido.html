@@ -9,6 +9,7 @@
 <body>
 
     <div>
+        <div class="titulo2">Buscar Atendido</div>
         <table id="tabela-atendidos" class="tg">
             <tr>
                 <th>ID</th>
@@ -21,7 +22,7 @@
     </div>
 
     <div>
-        <input type="text" id="query"/>
+        <input class="inputField" type="text" id="query"/>
         <select id="tipo">
             <option>Nome</option>
             <option>RG</option>
@@ -30,7 +31,7 @@
     </div>
 
     <div>
-        <button id="buscar">Buscar</button>
+        <button class="inputField" id="buscar">Buscar</button>
     </div>
 
     
@@ -38,12 +39,98 @@
 <script src="/atendido/buscaAtendido.js"></script>
 
 <style type="text/css">
-    .tg  {border-collapse:collapse;border-spacing:0;}
-    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-      overflow:hidden;padding:10px 5px;word-break:normal;}
-    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-    .tg .tg-0lax{text-align:left;vertical-align:top}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+
+.inputField {
+  width: 215px;
+  height: 39px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
+  margin-top: 13px;
+  background: #fffef1;
+  background-color: #fffef1;
+  border-radius: 11px;
+
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.tg {
+  border-collapse: collapse;
+  border-spacing: 20;
+  border-radius: 46px 46px 0px 0px;
+  background: #fb9aac;
+  color: #fffef1;
+  font-family: Inter;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  width: 300px;
+}
+
+.tg td {
+  border-color: white;
+  border-style: solid;
+  border-width: 5px;
+  padding: 10px 5px;
+  word-break: normal;
+
+  color: #fffef1;
+  font-family: Inter;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.tg th {
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+
+
+  color: #fffef1;
+  font-family: Inter;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.tg .tg-0lax {
+  text-align: left;
+  vertical-align: top;
+}
+
+.titulo {
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 47px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.titulo2 {
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+
+
+
 </style>
 
 </html>

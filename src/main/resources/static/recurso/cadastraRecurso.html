@@ -5,27 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="cadastraRecurso.css">
 </head>
-<body>
-    <div>
-        <label for="qtd">Quantidade:</label>
-        <input type="number" id="qtd"/>
+<body class="bodyClass">
 
-        <label for="data_aquisicao">Data de Aquisição:</label>
-        <input type="date" id="data_aquisicao"/>
 
-        <label for="tipo_recurso">Tipo do Recurso:</label>
-        <select id="tipo_recurso"></select>
+    <h2 class="titulo">Cadastra Recurso</h2>
+    <div class="formaEnvolta">
+
+        <div class="inputBoth">
+            <label class="inputText" for="qtd">Quantidade:</label>
+            <input class="inputField" type="number" id="qtd"/>
+        </div>
+
+        <div class="inputBoth">
+            <label class="inputText" for="data_aquisicao">Data de Aquisição:</label>
+            <input class="inputField" type="date" id="data_aquisicao"/>
+        </div>
+
+        <div class="inputBoth">
+            <label class="inputText" for="tipo_recurso">Tipo do Recurso:</label>
+            <select class="inputField" id="tipo_recurso"></select>
+        </div>
+
+        <div id="area-adicional">
+            <!-- Conteúdo adicional será inserido aqui -->
+        </div>
+
+            <button class="inputField" id="botao-cria">Cadastrar</button>
     </div>
 
-    <div id="area-adicional">
     </div>
-
-    <div>
-        <button id="botao-cria">Cadastrar</button>
-    </div>
-
+    <script src="cadastraRecurso.js"></script>
+    <script src="areaAdicionais.js"></script>
 </body>
-<script src="cadastraRecurso.js"></script>
-<script src="areaAdicionais.js"></script>
 </html>

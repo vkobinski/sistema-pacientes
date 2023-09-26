@@ -1,16 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
 .enderecoBorder {
+  margin: 0px;
+  padding: 0px !important;
   border: none !important;
   height: fit-content;
-  padding: 0;
   display: block;
   height: 1100px;
+  margin-left: 50px;
 }
 
 .major-block {
 
-    width: 100%;
+    width: 800px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -18,6 +20,8 @@
 
 .bodyClass {
   background-color: #fffef1;
+    width: 800px;
+    margin: 0px;
 }
 
 .inputBoth {
@@ -60,10 +64,11 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: fit-content;
+  width: 350px;
+  height: 1050px;
   background: #ffd7de;
   border-radius: 46px;
+  margin-right: 50px;
 }
 
 .inputField {

@@ -2,6 +2,7 @@
 
 .bodyClass {
   background-color: #fffef1;
+  margin: 0px;
 }
 
 .inputBoth {
@@ -46,7 +47,7 @@ select {
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 970px;
+  height: 1050px;
   background: #ffd7de;
   border-top-left-radius: 46px;
   border-top-right-radius: 46px;

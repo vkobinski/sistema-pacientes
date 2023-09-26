@@ -6,47 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div>
-        <t1>
+<body class="bodyClass">
+        <t1 class="titulo">
             Cadastro de Hóspede
         </t1>
-    </div>
-    <iframe id="atendidoFrame" src="../atendido/cadastraAtendido.html" height="400px" width="100%" frameborder="0"></iframe>
-    <div>
-        <label for="dataEntrada">Data de Entrada:</label>
-        <input id="dataEntrada" type="date"/>
-    </div>
+    <iframe id="atendidoFrame" src="../atendido/cadastraAtendido.html" height="1150px" width="100%" frameborder="0"></iframe>
 
-    <div>
-        <label for="dataSaida">Data de Saída:</label>
-        <input id="dataSaida" type="date"/>
+    <div class="formaEnvolta">
+        <div class="inputBoth">
+            <label class="inputText" for="dataEntrada">Data de Entrada:</label>
+            <input class="inputField" id="dataEntrada" type="date"/>
+        </div>
+
+        <div class="inputBoth">
+            <label class="inputText" for="dataSaida">Data de Saída:</label>
+            <input class="inputField" id="dataSaida" type="date"/>
+        </div>
+
+        <div class="inputBoth">
+            <label class="inputText" for="quartoHospedagem">Quarto de Hospedagem:</label>
+            <select class="inputField" id="quartoHospedagem">
+            </select>
+        </div>
+
+        <div class="inputBoth">
+            <label class="inputText" for="tratamento">Tratamento:</label>
+            <input class="inputField" id="tratamento" type="text"/>
+        </div>
+
+        <div class="inputBoth">
+            <label class="inputText" for="horarioTratamento">Horário de Tratamento:</label>
+            <input class="inputField" id="horarioTratamento" type="time"/>
+        </div>
+
+        <div class="inputBoth">
+            <label class="inputText" for="refeicao">Tipo de Refeição:</label>
+            <select class="inputField" id="refeicao">
+            </select>
+        </div>
+
+        <button class="inputField" id="cadastrar">Cadastrar</button>
     </div>
-
-    <div>
-        <label for="quartoHospedagem">Quarto de Hospedagem:</label>
-        <select id="quartoHospedagem">
-
-        </select>
-    </div>
-
-    <div>
-        <label for="tratamento">Tratamento:</label>
-        <input id="tratamento" type="text"/>
-    </div>
-
-    <div>
-        <label for="horarioTratamento">Horário de Tratamento:</label>
-        <input id="horarioTratamento" type="time"/>
-    </div>
-
-    <div>
-        <label for="refeicao">Tipo de Refeição:</label>
-        <select id="refeicao">
-        </select>
-    </div>
-    <button id="cadastrar">Cadastrar</button>
-
 </body>
 <script src="cadastraHospede.js"></script>
+<link rel="stylesheet" href="cadastraHospede.css">
 </html>

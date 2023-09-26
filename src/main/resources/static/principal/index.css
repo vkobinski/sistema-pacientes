@@ -1,23 +1,23 @@
 @font-face {
   font-family: FontAwesome6Free;
-  src: url("./imagens/Font\ Awesome\ 6\ Free.ttf") format("opentype");
+  src: url("../imagens/Font\ Awesome\ 6\ Free.ttf") format("opentype");
 }
 
 @font-face {
   font-family: FontAwesome6Free;
   font-weight: 900;
-  src: url("./imagens/Font\ Awesome\ 6\ Free-Solid-900.otf") format("opentype");
+  src: url("../imagens/Font\ Awesome\ 6\ Free-Solid-900.otf") format("opentype");
 }
 
 @font-face {
   font-family: Inter;
-  src: url("./imagens/Inter/static/Inter-Regular.ttf") format("opentype");
+  src: url("../imagens/Inter/static/Inter-Regular.ttf") format("opentype");
 }
 
 @font-face {
   font-family: FontAwesome6Free;
   font-weight: 700;
-  src: url("./imagens/Inter/static/Inter-Bold.ttf") format("opentype");
+  src: url("../imagens/Inter/static/Inter-Bold.ttf") format("opentype");
 }
 
 .major-square {

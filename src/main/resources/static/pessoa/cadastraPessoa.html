@@ -8,6 +8,8 @@
   </head>
   <body class="bodyClass">
     <div class="major-block">
+      <div class="size">
+
       <div class="formaEnvolta">
         <div class="inputBoth">
           <label class="inputText" for="nome">Nome</label>
@@ -15,7 +17,14 @@
         </div>
         <div class="inputBoth">
           <label class="inputText" for="rg">RG</label>
-          <input class="inputField" id="rg" type="text" />
+          <input
+            class="inputField"
+            oninput="formatRG()"
+            maxlength="10"
+            id="rg"
+            type="text"
+          />
+          <input type="hidden" id="rg-value" />
         </div>
         <div class="inputBoth">
           <label class="inputText" for="cpf">CPF</label>
@@ -58,7 +67,7 @@
           <input
             class="inputField"
             id="telefone"
-            oninput="formatcellphone()"
+            oninput="formatCellphone()"
             type="text"
             maxlength="12"
           />
@@ -81,6 +90,7 @@
           </select>
         </div>
       </div>
+      </div>
       <iframe
         class="enderecoBorder"
         id="enderecoframe"
@@ -91,38 +101,66 @@
     </div>
   </body>
   <script>
-    function formatcpf() {
-      var input = document.getelementbyid("cpf");
-      var hiddeninput = document.getelementbyid("cpf-value");
+    function formatRG(event) {
+      var input = document.getElementById("rg");
+      var hiddenInput = document.getElementById("rg-value");
 
-      var inputvalue = input.value;
-      var digitsonly = inputvalue.replace(/\d/g, "");
+      var inputValue = input.value;
+      var digitsOnly = inputValue.replace(/[^\d]/g, "");
 
-      var isbackspace = event && event.inputtype === "deletecontentbackward";
+      var isbackspace = event && event.inputType === "deleteContentBackward";
 
-      if (isbackspace) {
-        digitsonly = digitsonly.slice(0, -1);
+      if (isbackspace && digitsOnly.length > 0) {
+        digitsOnly = digitsOnly.slice(0, -1);
       }
 
-      var cpfgroups = digitsonly.match(
-        /^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/
+      // The regex breaks down the RG number into three groups and a digit at the end
+      var rggroups = digitsOnly.match(
+        /^(\d{0,2})(\d{0,3})?(\d{0,3})?(\d{0,1})?$/
       );
 
-      if (cpfgroups) {
-        var formattedcpf =
-          cpfgroups[1] +
-          "." +
-          cpfgroups[2] +
-          "." +
-          cpfgroups[3] +
-          "-" +
-          cpfgroups[4];
-        input.value = formattedCPF;
+      if (rggroups) {
+        var formattedRG = rggroups[1];
+
+        if (rggroups[2]) formattedRG += "." + rggroups[2];
+        if (rggroups[3]) formattedRG += "." + rggroups[3];
+        if (rggroups[4]) formattedRG += "-" + rggroups[4];
+
+        input.value = formattedRG;
       }
 
       hiddenInput.value = digitsOnly;
     }
 
+    function formatcpf(event) {
+      var input = document.getElementById("cpf");
+      var hiddenInput = document.getElementById("cpf-value");
+
+      var inputValue = input.value;
+      var digitsOnly = inputValue.replace(/[^\d]/g, "");
+
+      var isbackspace = event && event.inputType === "deleteContentBackward";
+
+      if (isbackspace && digitsOnly.length > 0) {
+        digitsOnly = digitsOnly.slice(0, -1);
+      }
+
+      var cpfgroups = digitsOnly.match(
+        /^(\d{0,3})(\d{0,3})?(\d{0,3})?(\d{0,2})?$/
+      );
+
+      if (cpfgroups) {
+        var formattedCPF = cpfgroups[1];
+
+        if (cpfgroups[2]) formattedCPF += "." + cpfgroups[2];
+        if (cpfgroups[3]) formattedCPF += "." + cpfgroups[3];
+        if (cpfgroups[4]) formattedCPF += "-" + cpfgroups[4];
+
+        input.value = formattedCPF;
+      }
+
+      hiddenInput.value = digitsOnly;
+    }
     function formatCellphone() {
       var input = document.getElementById("telefone");
       var hiddenInput = document.getElementById("telefone-value");
@@ -131,9 +169,10 @@
       var digitsOnly = inputValue.replace(/\D/g, "");
 
       var formattedCellphone;
+
       formattedCellphone = digitsOnly.replace(
-        /^(\d{2})(\d{1})(\d{4})(\d{4})$/,
-        "($1) $2 $3-$4"
+        /^(\d{2})(\d{5})(\d{4})$/,
+        "($1) $2-$3"
       );
 
       input.value = formattedCellphone;

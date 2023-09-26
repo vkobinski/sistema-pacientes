@@ -51,3 +51,12 @@
   text-align: left;
   vertical-align: top;
 }
+
+.titulo {
+  color: #fb9aac;
+  font-family: Inter;
+  font-size: 47px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

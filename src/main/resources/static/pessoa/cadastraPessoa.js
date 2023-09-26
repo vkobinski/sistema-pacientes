@@ -17,7 +17,7 @@ fetch("/api/v1/situacaosocioeconomica", {
 
 
 function getEnderecoFrame() {
-    return document.getElementById("enderecoFrame").contentWindow;
+    return document.getElementById("enderecoframe").contentWindow;
 }
 
 function geraPessoa() {
@@ -27,9 +27,9 @@ function geraPessoa() {
     const sexoCampo = document.getElementById("sexo");
     const dataNascimentoCampo = document.getElementById("datanascimento");
     const profissaoCampo = document.getElementById("profissao");
-    const redesSociaisCampo = document.getElementById("redesSociais");
+    const redesSociaisCampo = document.getElementById("redessociais");
     const telefoneCampo = document.getElementById("telefone-value");
-    const estadoCivilCampo = document.getElementById("estadoCivil");
+    const estadoCivilCampo = document.getElementById("estadocivil");
 
     return {
         "rg": rgCampo.value,
