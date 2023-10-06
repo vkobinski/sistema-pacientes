@@ -9,7 +9,7 @@
 <body>
 
     <div>
-        <div class="titulo2">Buscar Atendido</div>
+        <div class="inputText">Buscar Atendido</div>
         <table id="tabela-atendidos" class="tg">
             <tr>
                 <th>ID</th>
@@ -41,6 +41,89 @@
 <style type="text/css">
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+
+
+
+.formaEnvolta {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 250px;
+  background-color: #fb9aac;
+  border-radius: 46px;
+}
+
+body {
+  background-color: #fffef1;
+}
+
+
+.inputBoth {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.inputText {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  color: #fb9aac;
+}
+
+select {
+  width: 215px;
+  height: 39px;
+  padding-left: 10px;
+  border: 0;
+  margin-top: 13px;
+  color: #fffef1;
+  border-radius: 11px;
+  font-family: Inter;
+  font-weight: 400;
+
+  background: #fb9aac;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
+.formaEnvolta {
+  margin: auto;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  height: 400px;
+  background-color: #fb9aac;
+  border-top-left-radius: 46px;
+  border-top-right-radius: 46px;
+  border-bottom-right-radius: 46px;
+  border-bottom-left-radius: 46px;
+}
+
+.envolta {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 80px;
+}
 
 .inputField {
   width: 215px;
@@ -49,11 +132,12 @@
   padding-right: 10px;
   border: 0;
   margin-top: 13px;
-  background: #fffef1;
-  background-color: #fffef1;
+  color: #fffef1;
+  background: #fb9aac;
+
+
   border-radius: 11px;
 
-  color: #fb9aac;
   font-family: Inter;
   font-size: 18px;
   font-style: normal;
@@ -61,10 +145,11 @@
   line-height: normal;
 }
 
+
 .tg {
   border-collapse: collapse;
   border-spacing: 20;
-  border-radius: 46px 46px 0px 0px;
+  border-radius: 46px 46px 46px 46px;
   background: #fb9aac;
   color: #fffef1;
   font-family: Inter;
@@ -79,8 +164,7 @@
 .tg td {
   border-color: white;
   border-style: solid;
-  border-width: 5px;
-  padding: 10px 5px;
+  padding: 10px 10px 10px 10px;
   word-break: normal;
 
   color: #fffef1;
@@ -90,12 +174,17 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.tabela {
+  display: block;
+  margin: auto;
+}
+
 .tg th {
   border-color: white;
   border-style: solid;
-  border-width: 1px;
   overflow: hidden;
-  padding: 10px 5px;
+  padding: 10px 10px 10px 10px;
   word-break: normal;
 
 
@@ -112,23 +201,14 @@
 }
 
 .titulo {
-  color: #fb9aac;
-  font-family: Inter;
-  font-size: 47px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.titulo2 {
-  color: #fb9aac;
-  font-family: Inter;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
 
-
+    color: #FB9AAC;
+    font-family: Inter;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
 
 
 </style>

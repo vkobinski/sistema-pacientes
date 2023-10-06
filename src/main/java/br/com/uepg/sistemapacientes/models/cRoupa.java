@@ -10,6 +10,6 @@ import lombok.Setter;
 @Setter
 public class cRoupa extends cRecurso {
 
-    @Column
+    @Column(nullable = false)
     private int kit;
 }

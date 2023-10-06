@@ -12,6 +12,10 @@ function getAtendimento() {
 }
 
 document.getElementById("cadastrar").onclick = () => {
+
+    const span = document.getElementById("span-cadastro");
+    const botaoCadastrar = document.getElementById("cadastrar");
+
     fetch("/api/v1/atendimento", {
        method: "POST",
        headers: {
@@ -19,8 +23,13 @@ document.getElementById("cadastrar").onclick = () => {
        },
        body: JSON.stringify(getAtendimento()),
     }).then(response => {
-        return response.json();
-    }).then(data => {
-        console.log(data);
+        if(response.status == 200) {
+            span.innerHTML = "Cadastro concluído!";
+            span.style.visibility = "visible";
+            botaoCadastrar.disabled = true;
+        } else {
+            span.innerHTML = "Não foi possível Cadastrar";
+            span.style.visibility = "visible";
+        }
     })
 }

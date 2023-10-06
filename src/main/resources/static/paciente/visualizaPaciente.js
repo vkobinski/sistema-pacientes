@@ -1,6 +1,17 @@
 const tabela = document.getElementById("tabela");
 const tabelaHTML = tabela.innerHTML;
 
+const urlParams = new URLSearchParams(window.location.search);
+
+const arg1 = urlParams.get('id');
+preencheTabela(arg1);
+
+ window.onload = function () {
+        document
+          .getElementById("visualizaEndereco")
+          .contentWindow.criaEnderecoTabela(arg1);
+      };
+
 function preencheTabela(id) {
   fetch("/api/v1/paciente/" + id, {
     method: "GET",
@@ -45,14 +56,6 @@ function preencheTabela(id) {
       cellDataFalecimento.innerHTML = element["data_falecimento"];
       cellNivelPrioridade.innerHTML = element["nivel_prioridade"];
 
-      window.onload = function () {
-        document
-          .getElementById("visualizaEndereco")
-          .contentWindow.criaEnderecoTabela(element["endereco"]["id_endereco"]);
-      };
+     
     });
 }
-const urlParams = new URLSearchParams(window.location.search);
-
-const arg1 = urlParams.get('id');
-preencheTabela(arg1);

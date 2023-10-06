@@ -36,6 +36,7 @@ public class PacienteService {
     }
 
     public cPaciente criaPaciente(cPaciente paciente) {
+
         return pacienteRepository.save(paciente);
     }
 

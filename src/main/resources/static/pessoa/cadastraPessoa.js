@@ -32,8 +32,8 @@ function geraPessoa() {
     const estadoCivilCampo = document.getElementById("estadocivil");
 
     return {
-        "rg": rgCampo.value,
-        "cpf": cpfCampo.value,
+        "rg": rgCampo.value.replace(/[^a-zA-Z0-9 ]/g, ''),
+        "cpf": cpfCampo.value.replace(/[^a-zA-Z0-9 ]/g, ''),
         "nome": nomeCampo.value,
         "sexo": sexoCampo.options[sexoCampo.selectedIndex].text,
         "dataNascimento": dataNascimentoCampo.value,

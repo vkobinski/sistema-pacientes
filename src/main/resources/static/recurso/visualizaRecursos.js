@@ -21,7 +21,7 @@ fetch("/api/v1/medicamento", {
         cellQtd.innerHTML = element['quantidade'];
         cellNome.innerHTML = element['nome'];
         cellData.innerHTML = formataData(element['data_aquisicao']);
-        cellPreco.innerHTML = element['preco'];
+        cellPreco.innerHTML = "R$" + element['preco'];
         cellFarmacia.innerHTML = element['farmacia_compra'];
 
         i++;

@@ -41,9 +41,8 @@ document.getElementById("cadastrarPaciente").onclick = () => {
 
   let endereco = getPaciente()['atendido']['endereco'];
 
-  console.log(JSON.stringify({
-      "paciente": flattenObject(getPaciente()),
-      endereco}));
+  const span = document.getElementById("span-cadastro");
+  const botaoCadastrar = document.getElementById("cadastrar");
 
   fetch("/api/v1/paciente", {
     method: "POST",
@@ -55,9 +54,13 @@ document.getElementById("cadastrarPaciente").onclick = () => {
       endereco
     }),
   }).then(response => {
-    if(response.status === 200) console.log("Bem sucedido");
-    return response.json();
-  }).then(data => {
-    console.log(data);
-  })
+     if(response.status == 200) {
+            span.innerHTML = "Cadastro concluído!";
+            span.style.visibility = "visible";
+            botaoCadastrar.disabled = true;
+        } else {
+            span.innerHTML = "Não foi possível Cadastrar";
+            span.style.visibility = "visible";
+        }
+  });
 }

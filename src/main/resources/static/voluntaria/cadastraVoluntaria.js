@@ -6,6 +6,10 @@ cadastra_button.onclick = function(){
 
     let nome_v = nome_voluntaria.value;
 
+ const span = document.getElementById("span-cadastro");
+    const botaoCadastrar = document.getElementById("cadastraButton");
+
+
     fetch("/api/v1/voluntaria", {
         method: 'POST',
         headers: {
@@ -17,11 +21,13 @@ cadastra_button.onclick = function(){
     })
     .then(response => {
 
-        if(response.status === 200) {
-            span_concluido.classList.remove("hidden");
+        if(response.status == 200) {
+            span.innerHTML = "Cadastro concluído!";
+            span.style.visibility = "visible";
+            botaoCadastrar.disabled = true;
+        } else {
+            span.innerHTML = "Não foi possível Cadastrar";
+            span.style.visibility = "visible";
         }
-        return response.json()
-    }).then(data => {
-        span_concluido.innerHTML = "Cadastro concluído com ID: "+ data['id_voluntaria'];
-    })
+    });
 };

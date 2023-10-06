@@ -6,20 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
 
-    <div>
+<body class="bodyClass">
 
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" maxlength="30"/>
-        <button type="button" id="cadastraButton">Cadastrar</button>
+    <div class="formaEnvolta">
 
+        <div class="inputBoth">
+
+            <label class="inputText" for="nome">Nome:</label>
+            <input class="inputField" type="text" id="nome" name="nome" maxlength="30"/>
+
+        </div>
+
+            <button class="inputFieldButton" type="button" id="cadastraButton">Cadastrar</button>
+    
+  <span id="span-cadastro"
+            style="visibility: hidden; font-size: 20px; font-family: Inter; font-weight: 400; color: #fb9aac;">Cadastro concluído!</span>
+ 
     </div>
 
-    <span id="concluido" class="hidden">
-        Cadastro concluído!
-    </span>
-    
 </body>
 
 <style>
@@ -29,5 +34,6 @@
 </style>
 
 <script src="cadastraVoluntaria.js"></script>
+<link rel="stylesheet" href="cadastraVoluntaria.css">
 
 </html>

@@ -4,6 +4,7 @@ import br.com.uepg.sistemapacientes.models.Enums.SituacaoSocioeconomica;
 import jakarta.persistence.*;
 import lombok.*;
 import net.minidev.json.annotate.JsonIgnore;
+import org.hibernate.validator.constraints.Length;
 
 import java.sql.Date;
 
@@ -20,28 +21,32 @@ public class cPessoa {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id_pessoa;
 
-    @Column(length = 9)
+    @Length(min = 1)
+    @Column(length = 12, nullable = false)
     private String rg;
 
-    @Column
+    @Column(nullable = false)
     private Boolean ativo;
 
-    @Column(length = 11)
+    @Length(min = 1)
+    @Column(length = 11, unique = true, nullable = false)
     private String cpf;
 
-    @Column(length = 30)
+    @Length(min = 1)
+    @Column(length = 30, nullable = false)
     private String nome;
 
-    @Column
+    @Column(nullable = false)
     private Character sexo;
 
-    @Column
+    @Column(nullable = false)
     private Date dataNascimento;
 
-    @Column
+    @Length(min = 1)
+    @Column(nullable = false)
     private String profissao;
 
-    @Column
+    @Column(nullable = false)
     private Boolean redesSociais;
 
     @OneToOne
@@ -56,7 +61,7 @@ public class cPessoa {
     @ManyToOne
     @JoinColumn(name = "situacao_socioeconomica")
     private SituacaoSocioeconomica socioeconomica;
-
+    @Length(min = 1)
     @Column
     private String estadoCivil;
 

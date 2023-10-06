@@ -23,7 +23,7 @@ public class cRecurso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_recurso;
 
-    @Column
+    @Column(nullable = false)
     private int quantidade;
 
     @ManyToOne
@@ -34,9 +34,9 @@ public class cRecurso {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_aquisicao;
 
-    @Column
+    @Column(nullable = false)
     private int quantidadeTotal;
-    @Column
+    @Column(nullable = false)
     private int quantidadeDoada;
 
 }

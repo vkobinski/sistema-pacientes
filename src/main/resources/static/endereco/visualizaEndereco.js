@@ -2,7 +2,6 @@ const tabela = document.getElementById("tabela");
 const tabelaHTML = tabela.innerHTML;
 
 function criaEnderecoTabela(id) {
-  console.log("Teste");
 
   fetch("/api/v1/endereco/" + id, {
     method: "GET",

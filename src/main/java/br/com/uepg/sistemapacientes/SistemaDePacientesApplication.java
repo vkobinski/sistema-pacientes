@@ -26,13 +26,6 @@ public class SistemaDePacientesApplication {
 		return (args) -> {
 
 
-			cEndereco endereco = new cEndereco();
-			enderecoRepository.save(endereco);
-
-			cPessoa pessoa = new cPessoa();
-			pessoa.setEndereco(endereco);
-			pessoaRepository.save(pessoa);
-
 			List<String> tipos = Arrays.asList("Medicamento", "Roupa", "Material", "Cabelo", "Alimento");
 
 			for(String tipo : tipos) {

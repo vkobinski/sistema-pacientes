@@ -3,6 +3,7 @@ package br.com.uepg.sistemapacientes.models.Enums;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Getter
@@ -15,11 +16,12 @@ public class TipoCabelo {
 
 
     @Column(length = 30)
+    @Length(min = 1)
     private String tipo;
 
-    @Column
+    @Column(nullable = false)
     private int quantidadeTotal;
 
-    @Column
+    @Column(nullable = false)
     private int quantidadeDoada;
 }

@@ -1,37 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-     <div>
-        <table id="tabela" class="tg">
-            <tr>
-                <th>ID</th>
-                <th>RG</th>
-                <th>CPF</th>
-                <th>Nome</th>
-                <th>Data de Nascimento</th>
-                <th>Profissão</th>
-                <th>Telefone</th>
-                <th>Sexo</th>
-                <th>Estado Civil</th>
-                <th>Situação Socioeconômica</th>
-                <th>Grau de Parentesco</th>
-                <th>Atendido</th>
-            </tr>
-        </table>
-    </div>
-    <div>
-        <iframe id="visualizaEndereco" src="../endereco/visualizaEndereco.html" width="100%" height="400px" frameborder="0"></iframe>
-    </div>
-</body>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
-<style type="text/css">
-     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
 
 .formaEnvolta {
@@ -200,6 +168,3 @@ select {
     line-height: normal; 
 }
 
-</style>
-<script src="visualizaFamiliar.js"></script>
-</html>

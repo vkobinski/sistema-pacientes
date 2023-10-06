@@ -7,6 +7,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Getter
@@ -14,6 +15,7 @@ import lombok.Setter;
 public class cAlimento extends cRecurso {
 
     @Column(length = 20)
+    @Length(min = 1)
     private String nome;
 
     @ManyToOne

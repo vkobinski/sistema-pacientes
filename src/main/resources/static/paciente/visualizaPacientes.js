@@ -1,6 +1,7 @@
 const tabela = document.getElementById("tabela");
 const tabelaHTML = tabela.innerHTML;
 
+
 function preencheTabela() {
   fetch("/api/v1/paciente", {
     method: "GET",
@@ -90,3 +91,5 @@ function preencheTabela() {
       }
     });
 }
+
+preencheTabela();

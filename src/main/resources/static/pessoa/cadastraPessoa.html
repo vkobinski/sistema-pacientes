@@ -20,7 +20,7 @@
           <input
             class="inputField"
             oninput="formatRG()"
-            maxlength="10"
+            maxlength="20"
             id="rg"
             type="text"
           />
@@ -32,7 +32,7 @@
             class="inputField"
             id="cpf"
             oninput="formatcpf()"
-            maxlength="14"
+            maxlength="20"
             type="text"
           />
           <input type="hidden" id="cpf-value" />
@@ -114,7 +114,6 @@
         digitsOnly = digitsOnly.slice(0, -1);
       }
 
-      // The regex breaks down the RG number into three groups and a digit at the end
       var rggroups = digitsOnly.match(
         /^(\d{0,2})(\d{0,3})?(\d{0,3})?(\d{0,1})?$/
       );
