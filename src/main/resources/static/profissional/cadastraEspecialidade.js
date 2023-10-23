@@ -4,13 +4,6 @@ document.getElementById("cadastrar").onclick = () => {
     const span = document.getElementById("span-cadastro");
     const botaoCadastrar = document.getElementById("cadastrar");
 
-
-    const body = {
-        "nomeEspecialidade": nomeEspecialidade,
-    }
-
-    console.log(body);
-
     fetch("/api/v1/especialidade", {
         method: "POST",
         headers: {

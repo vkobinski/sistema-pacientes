@@ -37,6 +37,8 @@ function preencheTabela() {
           let cellHorarioTratamento = row.insertCell(15);
           let cellTipoRefeicao = row.insertCell(16);
           let cellDataFalecimento = row.insertCell(17);
+        let cellCondicoes = row.insertCell(18);
+          cellCondicoes.innerHTML = "<textarea disabled='true'>" + element["condicoesTrabalho"] + "</textarea>";
 
           cellId.innerHTML = element["id_pessoa"];
           cellRg.innerHTML = element["rg"];
@@ -85,6 +87,12 @@ function preencheTabela() {
         let cellHorarioTratamento = row.insertCell(15);
         let cellTipoRefeicao = row.insertCell(16);
         let cellDataFalecimento = row.insertCell(17);
+        let cellCondicoes = row.insertCell(18);
+          cellCondicoes.innerHTML = "<textarea disabled='true'>" + data["condicoesTrabalho"] + "</textarea>";
+
+          console.log(data);
+
+
 
         cellId.innerHTML = data["id_pessoa"];
         cellRg.innerHTML = data["rg"];

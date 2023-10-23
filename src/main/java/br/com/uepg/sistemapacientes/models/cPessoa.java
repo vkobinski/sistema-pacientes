@@ -15,6 +15,7 @@ import java.sql.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class cPessoa {
 
     @Id
@@ -49,6 +50,9 @@ public class cPessoa {
     @Column(nullable = false)
     private Boolean redesSociais;
 
+    @Column(name="DESC", columnDefinition="TEXT")
+    private String condicoesTrabalho;
+
     @OneToOne
     private cEndereco endereco;
 
@@ -57,6 +61,9 @@ public class cPessoa {
 
     @ManyToOne
     private cCurso curso;
+
+    @Column
+    private Date data_registro;
 
     @ManyToOne
     @JoinColumn(name = "situacao_socioeconomica")

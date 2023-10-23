@@ -38,4 +38,11 @@ public class FamiliarService {
         return familiarRepository.save(familiar);
     }
 
+    public Optional<cFamiliar> findFamiliarByNome(String nome) {
+        return familiarRepository.findByNomeLikeIgnoreCase(nome);
+    }
+
+    public Optional<cFamiliar> findFamiliarByCpf(String cpf) {
+        return familiarRepository.findByCpf(cpf);
+    }
 }

@@ -1,208 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-     <div>
-        <table id="tabela" class="tg">
-            <tr>
-                <th>ID</th>
-                <th>RG</th>
-                <th>CPF</th>
-                <th>Nome</th>
-                <th>Data de Nascimento</th>
-                <th>Profissão</th>
-                <th>Telefone</th>
-                <th>Sexo</th>
-                <th>Estado Civil</th>
-                <th>Situação Socioeconômica</th>
-                <th>Data de Registro</th>
-                <th>Estágio de Doença</th>
-                <th>Tipo de Cancro</th>
-                <th>Nível de Prioridade</th>
-                <th>Data de Falecimento</th>
-            </tr>
-        </table>
-    </div>
-</body>
+  </head>
+  <body>
+    <div class="envolta">
+      <table id="tabela" class="tg">
+        <tr>
+          <th>ID</th>
+          <th>RG</th>
+          <th>CPF</th>
+          <th>Nome</th>
+          <th>Data de Nascimento</th>
+          <th>Profissão</th>
+          <th>Telefone</th>
+          <th>Sexo</th>
+          <th>Estado Civil</th>
+          <th>Situação Socioeconômica</th>
+          <th>Data de Registro</th>
+          <th>Estágio de Doença</th>
+          <th>Tipo de Cancro</th>
+          <th>Nível de Prioridade</th>
+          <th>Data de Falecimento</th>
+          <th>Condições de Trabalho</th>
+        </tr>
+      </table>
 
-<style type="text/css">
+      <div class="bothButton">
+        <div class="button-wrapper">
+          <a href="/paciente/cadastraPaciente.html">
+            <button class="inputField">Cadastrar</button>
+          </a>
+        </div>
+
+        <div class="button-wrapper">
+          <a href="/paciente/buscaPaciente.html">
+            <button class="inputField">Buscar</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <style type="text/css">
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
+    .bothButton {
+      display: flex;
+      flex-direction: row;
+    }
 
+    .envolta {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
 
-.formaEnvolta {
-  margin-bottom: 10px;
-  padding-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 250px;
-  background: #ffd7de;
-  border-radius: 46px;
-}
+    .formaEnvolta {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 250px;
+      background: #ffd7de;
+      border-radius: 46px;
+    }
 
-body {
-  background-color: #fffef1;
-}
+    .button-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin: 20px;
+    }
 
+    body {
+      background-color: #fffef1;
+    }
 
-.inputBoth {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-}
+    .inputBoth {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+    }
 
-.inputText {
-  font-size: 20px;
-  font-family: Inter;
-  font-weight: 400;
-  color: #fb9aac;
-}
+    .inputText {
+      font-size: 20px;
+      font-family: Inter;
+      font-weight: 400;
+      color: #fb9aac;
+    }
 
-select {
-  width: 215px;
-  height: 39px;
-  padding-left: 10px;
-  border: 0;
-  margin-top: 13px;
-  background: #fffef1;
-  background-color: #fffef1;
-  border-radius: 11px;
-  font-family: Inter;
-  font-weight: 400;
+    select {
+      width: 215px;
+      height: 39px;
+      padding-left: 10px;
+      border: 0;
+      margin-top: 13px;
+      background: #fffef1;
+      background-color: #fffef1;
+      border-radius: 11px;
+      font-family: Inter;
+      font-weight: 400;
 
-  color: #fb9aac;
-  font-size: 18px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: normal;
-}
-.formaEnvolta {
-  margin: auto;
-  margin-bottom: 10px;
-  padding-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 350px;
-  height: 400px;
-  background: #ffd7de;
-  border-top-left-radius: 46px;
-  border-top-right-radius: 46px;
-  border-bottom-right-radius: 46px;
-  border-bottom-left-radius: 46px;
-}
+      color: #fb9aac;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: normal;
+    }
+    .formaEnvolta {
+      margin: auto;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 350px;
+      height: 400px;
+      background: #ffd7de;
+      border-top-left-radius: 46px;
+      border-top-right-radius: 46px;
+      border-bottom-right-radius: 46px;
+      border-bottom-left-radius: 46px;
+    }
 
-.envolta {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
+    .envolta {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
 
-}
+    .button-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-top: 80px;
+    }
 
-.button-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-top: 80px;
-}
+    .inputField {
+      width: 215px;
+      height: 39px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border: 0;
+      margin-top: 13px;
+      color: #fffef1;
+      background: #fb9aac;
 
-.inputField {
-  width: 215px;
-  height: 39px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 0;
-  margin-top: 13px;
-  color: #fffef1;
-  background: #fb9aac;
+      border-radius: 11px;
 
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
 
-  border-radius: 11px;
+    .tg {
+      border-collapse: collapse;
+      border-spacing: 20;
+      border-radius: 46px 46px 46px 46px;
+      background: #fb9aac;
+      color: #fffef1;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
 
-  font-family: Inter;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
+      width: 300px;
+    }
 
+    .tg td {
+      border-color: white;
+      border-style: solid;
+      padding: 10px 10px 10px 10px;
+      word-break: normal;
 
-.tg {
-  border-collapse: collapse;
-  border-spacing: 20;
-  border-radius: 46px 46px 46px 46px;
-  background: #fb9aac;
-  color: #fffef1;
-  font-family: Inter;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+      color: #fffef1;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
 
-  width: 300px;
-}
+    .tabela {
+      display: block;
+      margin: auto;
+    }
 
-.tg td {
-  border-color: white;
-  border-style: solid;
-  padding: 10px 10px 10px 10px;
-  word-break: normal;
+    .tg th {
+      border-color: white;
+      border-style: solid;
+      overflow: hidden;
+      padding: 10px 10px 10px 10px;
+      word-break: normal;
 
-  color: #fffef1;
-  font-family: Inter;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
+      color: #fffef1;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    .tg .tg-0lax {
+      text-align: left;
+      vertical-align: top;
+    }
 
-.tabela {
-  display: block;
-  margin: auto;
-}
-
-.tg th {
-  border-color: white;
-  border-style: solid;
-  overflow: hidden;
-  padding: 10px 10px 10px 10px;
-  word-break: normal;
-
-
-  color: #fffef1;
-  font-family: Inter;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-.tg .tg-0lax {
-  text-align: left;
-  vertical-align: top;
-}
-
-.titulo {
-
-    color: #FB9AAC;
-    font-family: Inter;
-    font-size: 47px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal; 
-}
-
-
-
-</style>
-<script src="visualizaPacientes.js"></script>
+    .titulo {
+      color: #fb9aac;
+      font-family: Inter;
+      font-size: 47px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  </style>
+  <script src="visualizaPacientes.js"></script>
 </html>

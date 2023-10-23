@@ -25,4 +25,8 @@ public class TipoCabeloService {
     public TipoCabelo getTipoCabeloByTipo(String tipo) {
         return tipoCabeloRepository.getTipoCabeloByTipo(tipo);
     }
+
+    public TipoCabelo criaTipoCabelo(TipoCabelo tipoCabelo) {
+        return tipoCabeloRepository.save(tipoCabelo);
+    }
 }

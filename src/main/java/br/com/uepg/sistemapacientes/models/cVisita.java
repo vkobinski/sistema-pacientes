@@ -17,15 +17,20 @@ public class cVisita {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_visita;
 
-    @Column
+    @Column(nullable = false)
     private Date data_visita;
 
     @Column
-    @OneToMany
+    @ManyToMany
     private Set<cVoluntaria> voluntarias = new HashSet<>();
 
     @ManyToOne
-    @JoinColumn(name = "IDPaciente")
+    @JoinColumn(name = "IDPaciente", nullable = false)
     private cPaciente paciente;
+
+    @Column(name="DESC", columnDefinition="TEXT")
+    private String descricaoVisita;
+
+    private boolean ocorreu = false;
 
 }

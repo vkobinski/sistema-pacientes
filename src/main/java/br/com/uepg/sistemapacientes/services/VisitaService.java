@@ -35,6 +35,20 @@ public class VisitaService {
         return visitaRepository.save(visita);
     }
 
+    public cVisita setVisitaOcorrida(Long idVisita, String descricaoVisita) {
+        Optional<cVisita> byId = visitaRepository.findById(idVisita);
+
+        if(byId.isPresent()) {
+            cVisita visita = byId.get();
+            visita.setDescricaoVisita(descricaoVisita);
+
+            return visitaRepository.save(visita);
+
+        }
+
+        return null;
+    }
+
     @Transactional
     public cVisita atualizaVisita(Long idVisita, Date dataVisita, List<Long> idVoluntarias) {
         Optional<cVisita> visitaOptional = visitaRepository.findById(idVisita);

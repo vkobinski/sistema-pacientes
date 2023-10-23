@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Date;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/paciente")
@@ -50,5 +51,17 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteService.findPacienteById(id));
     }
 
+    @GetMapping(path = "/nome/{nome}")
+    public ResponseEntity<cPaciente> findPacienteByNome(@PathVariable(name = "nome") String nome) {
+        Optional<cPaciente> pacienteByNome = pacienteService.findPacienteByNome(nome);
+        return pacienteByNome.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+
+    }
+
+    @GetMapping(path = "/cpf/{cpf}")
+    public ResponseEntity<cPaciente> findPacienteByCpf(@PathVariable(name = "cpf") String cpf) {
+        Optional<cPaciente> pacienteByCpf = pacienteService.findPacienteByCpf(cpf);
+        return pacienteByCpf.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
 }

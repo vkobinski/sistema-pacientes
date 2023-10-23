@@ -27,7 +27,11 @@ function preencheTabela(id) {
       let cellSocioeconomica = row.insertCell(9);
       let cellParentesco = row.insertCell(10);
       let cellAtendido = row.insertCell(11);
-     
+      let cellCondicoes = row.insertCell(15);
+      cellCondicoes.innerHTML =
+        "<textarea disabled='true'>" +
+        element["condicoesTrabalho"] +
+        "</textarea>";
 
       cellId.innerHTML = data["id_pessoa"];
       cellRg.innerHTML = data["rg"];
@@ -40,7 +44,7 @@ function preencheTabela(id) {
       cellEstadoCivil.innerHTML = data["estadoCivil"];
       cellSocioeconomica.innerHTML = data["socioeconomica"]["nome"];
       cellParentesco.innerHTML = data["grauParentesco"];
-      cellAtendido.innerHTML = data['atendido']['nome'];
+      cellAtendido.innerHTML = data["atendido"]["nome"];
 
       window.onload = function () {
         document

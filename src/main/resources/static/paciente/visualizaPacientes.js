@@ -35,6 +35,9 @@ function preencheTabela() {
           let cellTipoCancro = row.insertCell(12);
           let cellNivelPrioridade = row.insertCell(13);
           let cellDataFalecimento = row.insertCell(14);
+          let cellCondicoes = row.insertCell(15);
+          console.log(element);
+          cellCondicoes.innerHTML = "<textarea disabled='true'>" + element["condicoesTrabalho"] + "</textarea>";
 
           cellId.innerHTML = element["id_pessoa"];
           cellRg.innerHTML = element["rg"];

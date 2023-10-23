@@ -21,4 +21,5 @@ public class cVoluntaria {
     @Length(min = 1)
     @Column(length = 30, unique = true)
     private String nome;
+
 }

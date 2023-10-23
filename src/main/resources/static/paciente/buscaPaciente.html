@@ -1,38 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Busca Paciente</title>
 </head>
 <body>
 
-        <h2 class="titulo">Visitas</h2>
+    <div class="formaEnvolta">
 
-   <div class="envolta">
 
-    <div class="button-wrapper">
-        <a href="/visita/criaVisita.html">
-            <button class="inputField">Criar</button>
-        </a>
-    </div>
-        <table id="tabela-visitas" class="tg">
+    <div>
+        <div class="inputText">Buscar Paciente</div>
+        <table id="tabela-busca" class="tg">
             <tr>
                 <th>ID</th>
-                <th>Data</th>
-                <th>Voluntárias</th>
-                <th>Paciente</th>
-                <th>Descrição</th>
-                <th>Editar</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Selecionar</th>
             </tr>
         </table>
-    </div> 
+    </div>
 
+    <div>
+        <input class="inputField" type="text" id="query"/>
+        <select id="tipo">
+            <option>Nome</option>
+            <option>CPF</option>
+        </select>
+    </div>
+
+    <div>
+        <button class="inputField" id="buscar">Buscar</button>
+    </div>
+
+    </div>
     
 </body>
-<style> 
+
+<script src="./buscaPaciente.js"></script>
+
+<style>
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+
 .formaEnvolta {
   margin-bottom: 10px;
   padding-left: 20px;
@@ -42,7 +54,6 @@
   flex-direction: column;
   align-items: flex-start;
   width: 250px;
-  background: #ffd7de;
   border-radius: 46px;
 }
 
@@ -70,13 +81,12 @@ select {
   padding-left: 10px;
   border: 0;
   margin-top: 13px;
-  background: #fffef1;
-  background-color: #fffef1;
+  color: #fffef1;
   border-radius: 11px;
   font-family: Inter;
   font-weight: 400;
 
-  color: #fb9aac;
+  background: #fb9aac;
   font-size: 18px;
   font-style: italic;
   font-weight: 400;
@@ -88,12 +98,8 @@ select {
   padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 350px;
   height: 400px;
-  background: #ffd7de;
   border-top-left-radius: 46px;
   border-top-right-radius: 46px;
   border-bottom-right-radius: 46px;
@@ -193,13 +199,11 @@ select {
 
     color: #FB9AAC;
     font-family: Inter;
-    font-size: 47px;
+    font-size: 35px;
     font-style: normal;
     font-weight: 700;
     line-height: normal; 
 }
 
-
 </style>
-<script src="visualizaVisita.js"></script>
 </html>

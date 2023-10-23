@@ -33,6 +33,9 @@ function preencheTabela(id) {
       let cellHorarioTratamento = row.insertCell(15);
       let cellTipoRefeicao = row.insertCell(16);
       let cellDataFalecimento = row.insertCell(17);
+      let cellCondicoes = row.insertCell(15);
+          cellCondicoes.innerHTML = "<textarea disabled='true'>" + element["condicoesTrabalho"] + "</textarea>";
+
 
       cellId.innerHTML = data["id_pessoa"];
       cellRg.innerHTML = data["rg"];

@@ -66,6 +66,7 @@ function getHospede() {
     let tipoRefeicao = tipoRefeicaoCampo.options[tipoRefeicaoCampo.selectedIndex].text;
     let tratamento = document.getElementById("tratamento").value;
     let horarioTratamento = document.getElementById("horarioTratamento").value;
+    let condicoes = document.getElementById("condicoes").value;
 
     let hospede = {
         "atendido": getAtendido(),
@@ -75,7 +76,7 @@ function getHospede() {
         "tratamento": tratamento,
         "horarioTratamento": horarioTratamento,
         "dataSaida": dataSaida,
-
+        "condicoesTrabalho": condicoes,
     };
 
     return hospede;
@@ -86,6 +87,10 @@ document.getElementById("cadastrar").onclick = () => {
   delete hospede['atendido']['endereco'];
 
   let endereco = getHospede()['atendido']['endereco'];
+
+  const span = document.getElementById("span-cadastro");
+  const botaoCadastrar = document.getElementById("cadastrar");
+
 
   console.log(JSON.stringify({
     "hospede": flattenObject(hospede),
@@ -102,9 +107,13 @@ document.getElementById("cadastrar").onclick = () => {
      endereco,
     }),
   }).then(response => {
-    if(response.status === 200) console.log("Bem sucedido");
-    return response.json();
-  }).then(data => {
-    console.log(data);
-  })
+    if(response.status == 200) {
+            span.innerHTML = "Cadastro concluído!";
+            span.style.visibility = "visible";
+            botaoCadastrar.disabled = true;
+        } else {
+            span.innerHTML = "Não foi possível Cadastrar";
+            span.style.visibility = "visible";
+        }
+  });
 }

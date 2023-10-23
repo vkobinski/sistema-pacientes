@@ -6,23 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <h1>Cadastro de Estágio de Doença</h1>
-
-    <div>
-      <div>
-        <label for="estagio_doenca">Estágio a inserir:</label>
-        <input id="estagio_doenca" />
+  <body class="bodyClass">
+    <div class="formaEnvolta">
+      <div class="inputBoth">
+        <label class="inputText" for="estagio_doenca">Estágio a inserir:</label>
+        <input class="inputField" id="estagio_doenca" />
       </div>
 
-      <button id="cadastrar">Cadastrar</button>
-    </div>
-    <div>
-        <span id="cadastroSpan" style="visibility: hidden;">
-            Cadastro Concluído com Sucesso!
-        </span>
-    </div>
-    <div>
+      <button class="inputField" id="cadastrar">Cadastrar</button>
+
+      <span
+        id="span-cadastro"
+        class="inputText"
+        style="
+          visibility: hidden;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          color: #fb9aac;
+        "
+        >Cadastro concluído!</span
+      >
+
       <table id="tabela" class="tg">
         <tr>
           <th>ID</th>
@@ -32,37 +37,192 @@
         </tr>
       </table>
 
-      <div>
-        <span style="visibility: hidden;" id="deletarSpan">Registro Desativado com Sucesso</span>
-      </div>
+      <span class="inputText" style="visibility: hidden" id="deletarSpan"
+        >Registro Desativado com Sucesso</span
+      >
     </div>
   </body>
 
   <style type="text/css">
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+
+    .major-block {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .buscaAtendido {
+      margin: auto;
+      display: block;
+      margin-top: 20px;
+    }
+
+    .formaEnvolta {
+      margin-bottom: 10px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 400px;
+      height: 970px;
+      background: #ffd7de;
+      border-top-left-radius: 46px;
+      border-top-right-radius: 46px;
+      border-bottom-right-radius: 46px;
+      border-bottom-left-radius: 46px;
+    }
+
+    body {
+      background-color: #fffef1;
+    }
+
+    .inputBoth {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+    }
+
+    .inputText {
+      font-size: 20px;
+      font-family: Inter;
+      font-weight: 400;
+      color: #fb9aac;
+    }
+
+    select {
+      width: 215px;
+      height: 39px;
+      padding-left: 10px;
+      border: 0;
+      margin-top: 13px;
+      background: #fffef1;
+      background-color: #fffef1;
+      border-radius: 11px;
+      font-family: Inter;
+      font-weight: 400;
+
+      color: #fb9aac;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .formaEnvolta {
+      margin-bottom: 10px;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 350px;
+      height: 1050px;
+      background: #ffd7de;
+      border-radius: 46px;
+      margin-right: 50px;
+    }
+
+    .inputField {
+      width: 215px;
+      height: 39px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border: 0;
+      margin-top: 13px;
+      background: #fffef1;
+      background-color: #fffef1;
+      border-radius: 11px;
+
+      color: #fb9aac;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .titulo {
+      color: #fb9aac;
+      font-family: Inter;
+      font-size: 47px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .inputField {
+      width: 215px;
+      height: 39px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border: 0;
+      margin-top: 13px;
+      background: #fffef1;
+      background-color: #fffef1;
+      border-radius: 11px;
+
+      color: #fb9aac;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .pessoaFrame {
+      margin-left: 50px;
+    }
+
     .tg {
       border-collapse: collapse;
-      border-spacing: 0;
+      border-spacing: 20;
+      border-radius: 46px 46px 46px 46px;
+      background: #fb9aac;
+      color: #fffef1;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      width: 300px;
     }
+
     .tg td {
-      border-color: black;
+      border-color: white;
       border-style: solid;
-      border-width: 1px;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      overflow: hidden;
-      padding: 10px 5px;
+      padding: 10px 10px 10px 10px;
       word-break: normal;
+
+      color: #fffef1;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
+
+    .tabela {
+      display: block;
+      margin: auto;
+    }
+
     .tg th {
-      border-color: black;
+      border-color: white;
       border-style: solid;
-      border-width: 1px;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      font-weight: normal;
       overflow: hidden;
-      padding: 10px 5px;
+      padding: 10px 10px 10px 10px;
       word-break: normal;
+
+      color: #fffef1;
+      font-family: Inter;
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
     .tg .tg-0lax {
       text-align: left;

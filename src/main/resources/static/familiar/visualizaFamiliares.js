@@ -28,10 +28,13 @@ function preencheTabela() {
       let cellProfissao = row.insertCell(5);
       let cellTelefone = row.insertCell(6);
       let cellSexo = row.insertCell(7);
-      let cellEstadoCivil = row.insertCell(8);
-      let cellSocioeconomica = row.insertCell(9);
-      let cellParentesco = row.insertCell(10);
-      let cellAtendido = row.insertCell(11);
+      let cellDataRegistro = row.insertCell(8);
+      let cellEstadoCivil = row.insertCell(9);
+      let cellSocioeconomica = row.insertCell(10);
+      let cellParentesco = row.insertCell(11);
+      let cellAtendido = row.insertCell(12);
+      let cellCondicoes = row.insertCell(13);
+          cellCondicoes.innerHTML = "<textarea disabled='true'>" + element["condicoesTrabalho"] + "</textarea>";
 
           cellId.innerHTML = element["id_pessoa"];
           cellRg.innerHTML = element["rg"];
@@ -48,6 +51,7 @@ function preencheTabela() {
           cellSexo.innerHTML = element["sexo"];
           cellEstadoCivil.innerHTML = element["estadoCivil"];
           cellSocioeconomica.innerHTML = element["socioeconomica"]["nome"];
+          cellDataRegistro.innerHTML = element["data_registro"];
           cellParentesco.innerHTML = element["grauParentesco"];
           cellAtendido.innerHTML = element['atendido']['nome'];
 

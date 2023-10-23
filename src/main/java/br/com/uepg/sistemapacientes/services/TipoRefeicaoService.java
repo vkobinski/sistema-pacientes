@@ -25,4 +25,8 @@ public class TipoRefeicaoService {
     public TipoRefeicao getTipoRefeicao(String nome) {
         return tipoRefeicaoRepository.getTipoRefeicaoByNome(nome);
     }
+
+    public TipoRefeicao criaTipoRefeicao(TipoRefeicao tipoRefeicao) {
+        return tipoRefeicaoRepository.save(tipoRefeicao);
+    }
 }

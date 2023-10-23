@@ -5,6 +5,7 @@ import br.com.uepg.sistemapacientes.models.Enums.GrauParentesco;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Getter
@@ -15,6 +16,7 @@ public class cFamiliar extends cPessoa{
     @JoinColumn(name = "ID_Atendido")
     private cAtendido atendido;
 
+    @Length(min = 1)
     private String grauParentesco;
 
 }

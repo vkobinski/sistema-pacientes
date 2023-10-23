@@ -14,7 +14,6 @@ public class TipoCabelo {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idTipoCabelo;
 
-
     @Column(length = 30)
     @Length(min = 1)
     private String tipo;

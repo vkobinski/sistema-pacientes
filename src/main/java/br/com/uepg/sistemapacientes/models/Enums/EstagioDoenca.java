@@ -3,6 +3,7 @@ package br.com.uepg.sistemapacientes.models.Enums;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Getter
@@ -14,6 +15,7 @@ public class EstagioDoenca {
     private Long idEstagioDoenca;
 
     @Column(length = 30)
+    @Length(min = 1)
     private String nome;
 
     private boolean ativo = true;

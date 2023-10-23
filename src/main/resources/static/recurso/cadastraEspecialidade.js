@@ -4,20 +4,15 @@ document.getElementById("cadastrar").onclick = () => {
     const span = document.getElementById("span-cadastro");
     const botaoCadastrar = document.getElementById("cadastrar");
 
+    console.log(JSON.stringify({nome: nomeEspecialidade}));
 
-    const body = {
-        "nomeEspecialidade": nomeEspecialidade,
-    }
-
-    console.log(body);
-
-    fetch("/api/v1/especialidade", {
+    fetch("/api/v1/tiporefeicao", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nomeEspecialidade: nomeEspecialidade
+            nome: nomeEspecialidade
         }),
     })
     .then(response => {

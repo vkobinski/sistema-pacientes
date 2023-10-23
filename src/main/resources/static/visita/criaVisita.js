@@ -35,8 +35,16 @@ fetch("/api/v1/paciente", {
 });
 
 document.getElementById("voluntariaBtn").onclick = () => {
+    const span = document.getElementById("span-voluntaria");
+
     let voluntaria = selectVoluntaria.options[selectVoluntaria.selectedIndex].id;
     if(voluntarias.includes(voluntaria)) return;
+
+    span.style.visibility = "visible";
+
+    setTimeout(() => {
+        span.style.visibility = "hidden";
+    }, 1500);
     voluntarias.push(+voluntaria);
 }
 
@@ -44,6 +52,10 @@ document.getElementById("cadastrar").onclick = () => {
 
     let data = document.getElementById("data_visita").value;
     let paciente = selectPaciente.options[selectPaciente.selectedIndex].id;
+
+    const span = document.getElementById("span-cadastro");
+    const botaoCadastrar = document.getElementById("cadastrar");
+
     
     let voluntariaJ = {
         "data_visita": data,
@@ -61,10 +73,13 @@ document.getElementById("cadastrar").onclick = () => {
         },
         body: JSON.stringify(voluntariaJ),
     }).then(response => {
-        console.log(response);
-
-        return response.json();
-    }).then(data => {
-        console.log(data);
-    })
+        if(response.status == 200) {
+            span.innerHTML = "Cadastro concluído!";
+            span.style.visibility = "visible";
+            botaoCadastrar.disabled = true;
+        } else {
+            span.innerHTML = "Não foi possível Cadastrar";
+            span.style.visibility = "visible";
+        }
+    });
 }

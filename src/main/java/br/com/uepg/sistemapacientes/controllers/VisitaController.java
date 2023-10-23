@@ -76,6 +76,12 @@ public class VisitaController {
         return ResponseEntity.ok(visitaService.deletaVisita(idVisita));
     }
 
+    @PutMapping("/ocorreu")
+    public ResponseEntity<cVisita> setVisitaOcorrida(@RequestParam Long idVisita, @RequestParam String descricaoVisita) {
+        cVisita visita = visitaService.setVisitaOcorrida(idVisita, descricaoVisita);
+        return ResponseEntity.ok(visita);
+    }
+
     @Getter
     @Setter
     public class CreateVisitaRequest {

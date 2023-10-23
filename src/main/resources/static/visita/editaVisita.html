@@ -4,58 +4,68 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Editar Visita</title>
   </head>
   <body>
+    <h2 class="titulo">Visita</h2>
+
     <div class="envolta">
-      <table id="tabela" class="tg">
-        <tr>
-          <th>ID</th>
-          <th>RG</th>
-          <th>CPF</th>
-          <th>Nome</th>
-          <th>Data de Nascimento</th>
-          <th>Profissão</th>
-          <th>Telefone</th>
-          <th>Sexo</th>
-          <th>Data de Registro</th>
-          <th>Estado Civil</th>
-          <th>Situação Socioeconômica</th>
-          <th>Grau de Parentesco</th>
-          <th>Atendido</th>
-          <th>Condições de Trabalho</th>
-        </tr>
-      </table>
+      <textarea id="descricao-visita" rows="20" cols="50"></textarea>
 
-      <div class="bothButton">
-        <div class="button-wrapper">
-          <a href="/familiar/cadastraFamiliar.html">
-            <button class="inputField">Cadastrar</button>
-          </a>
-        </div>
-
-        <div class="button-wrapper">
-          <a href="/familiar/buscaFamiliar.html">
-            <button class="inputField">Buscar</button>
-          </a>
-        </div>
+      <div class="button-wrapper">
+        <button onclick="edita(arg1)" class="inputField">Editar</button>
       </div>
+      <span
+        id="span-cadastro"
+        style="
+          visibility: hidden;
+          font-size: 20px;
+          font-family: Inter;
+          font-weight: 400;
+          color: #fb9aac;
+        "
+        >Cadastro concluído!</span
+      >
     </div>
   </body>
 
-  <style type="text/css">
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const arg1 = urlParams.get("id");
 
-    .bothButton {
-      display: flex;
-      flex-direction: row;
+    function edita(id) {
+
+  const span = document.getElementById("span-cadastro");
+      const texto = document.getElementById("descricao-visita").value;
+
+      let params = {
+          idVisita: id,
+          descricaoVisita: texto,
+      };
+
+      let url = new URL("http://localhost:8080/api/v1/visita/ocorreu");
+      Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+      fetch(url, {
+        method: "PUT"
+      }).then((response) => {
+        if (response.status == 200) {
+          span.innerHTML = "Cadastro concluído!";
+          span.style.visibility = "visible";
+        } else {
+          span.innerHTML = "Não foi possível Cadastrar";
+          span.style.visibility = "visible";
+        }
+      });
     }
+  </script>
 
-    .envolta {
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: center;
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+
+    .entireTextInput {
+      height: 200px;
+      width: 200px;
     }
 
     .formaEnvolta {
@@ -69,13 +79,6 @@
       width: 250px;
       background: #ffd7de;
       border-radius: 46px;
-    }
-
-    .button-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
-      margin: 20px;
     }
 
     body {
@@ -225,5 +228,4 @@
       line-height: normal;
     }
   </style>
-  <script src="visualizaFamiliares.js"></script>
 </html>

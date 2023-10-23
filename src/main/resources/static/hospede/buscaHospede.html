@@ -1,51 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="envolta">
-      <table id="tabela" class="tg">
-        <tr>
-          <th>ID</th>
-          <th>RG</th>
-          <th>CPF</th>
-          <th>Nome</th>
-          <th>Data de Nascimento</th>
-          <th>Profissão</th>
-          <th>Telefone</th>
-          <th>Sexo</th>
-          <th>Data de Registro</th>
-          <th>Estado Civil</th>
-          <th>Situação Socioeconômica</th>
-          <th>Grau de Parentesco</th>
-          <th>Atendido</th>
-          <th>Condições de Trabalho</th>
-        </tr>
-      </table>
+<html>
 
-      <div class="bothButton">
-        <div class="button-wrapper">
-          <a href="/familiar/cadastraFamiliar.html">
-            <button class="inputField">Cadastrar</button>
-          </a>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca Hóspede</title>
+</head>
+<body>
 
-        <div class="button-wrapper">
-          <a href="/familiar/buscaFamiliar.html">
-            <button class="inputField">Buscar</button>
-          </a>
-        </div>
-      </div>
+    <div class="formaEnvolta">
+
+
+    <div>
+        <div class="inputText">Buscar Hóspede</div>
+        <table id="tabela-busca" class="tg">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Selecionar</th>
+            </tr>
+        </table>
     </div>
-  </body>
 
-  <style type="text/css">
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
+    <div>
+
+
+    <div>
+        <input class="inputField" type="text" id="query"/>
+        <select id="tipo">
+            <option>Nome</option>
+            <option>CPF</option>
+        </select>
+    </div>
+
+    <div>
+        <button class="inputField" id="buscar">Buscar</button>
+    </div>
+
+    </div>
+    
+</body>
+
+<script src="./buscaHospede.js"></script>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap");
 
     .bothButton {
       display: flex;
@@ -224,6 +224,6 @@
       font-weight: 700;
       line-height: normal;
     }
-  </style>
-  <script src="visualizaFamiliares.js"></script>
+
+</style>
 </html>

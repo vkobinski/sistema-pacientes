@@ -8,10 +8,13 @@ function getAtendido() {
 
 function getPaciente() {
   let nivelPrioridade = document.getElementById("nivelPrioridade").value;
+    let condicoes = document.getElementById("condicoes").value;
+    console.log(condicoes);
 
   let paciente = {
     "atendido": getAtendido(),
     "nivel_prioridade": nivelPrioridade,
+    "condicoesTrabalho": condicoes,
   }
   return paciente;
 }
@@ -44,6 +47,7 @@ document.getElementById("cadastrarPaciente").onclick = () => {
   const span = document.getElementById("span-cadastro");
   const botaoCadastrar = document.getElementById("cadastrar");
 
+
   fetch("/api/v1/paciente", {
     method: "POST",
     headers: {
@@ -51,7 +55,7 @@ document.getElementById("cadastrarPaciente").onclick = () => {
     },
     body: JSON.stringify({
       "paciente": flattenObject(getPaciente()),
-      endereco
+      endereco,
     }),
   }).then(response => {
      if(response.status == 200) {

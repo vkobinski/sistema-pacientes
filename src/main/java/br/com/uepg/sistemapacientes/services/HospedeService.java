@@ -38,4 +38,12 @@ public class HospedeService {
         return hospedeRepository.save(hospede);
     }
 
+    public Optional<cHospede> findHospedeByNome(String nome) {
+        return hospedeRepository.findByNomeLikeIgnoreCase(nome);
+    }
+
+    public Optional<cHospede> findHospedeByCpf(String cpf) {
+        return hospedeRepository.findByCpf(cpf);
+    }
+
 }

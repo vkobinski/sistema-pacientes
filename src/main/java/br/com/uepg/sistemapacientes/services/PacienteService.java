@@ -40,4 +40,12 @@ public class PacienteService {
         return pacienteRepository.save(paciente);
     }
 
+    public Optional<cPaciente> findPacienteByNome(String nome) {
+
+        return pacienteRepository.findByNomeLikeIgnoreCase(nome);
+    }
+
+    public Optional<cPaciente> findPacienteByCpf(String cpf) {
+        return pacienteRepository.findByCpf(cpf);
+    }
 }

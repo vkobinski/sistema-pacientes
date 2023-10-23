@@ -12,7 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/familiar")
@@ -39,6 +43,8 @@ public class FamiliarController {
 
         wrapper.familiar.setAtivo(true);
 
+        wrapper.familiar.setData_registro(new Date(System.currentTimeMillis()));
+
         cFamiliar familiar = familiarService.criaFamiliar(wrapper.familiar);
 
         return ResponseEntity.ok(familiar);
@@ -52,5 +58,18 @@ public class FamiliarController {
     @GetMapping("/{id}")
     public ResponseEntity<cFamiliar> getFamiliarById(@PathVariable Long id) {
         return ResponseEntity.ok(familiarService.findFamiliarById(id));
+    }
+
+    @GetMapping(path = "/nome/{nome}")
+    public ResponseEntity<cFamiliar> findFamiliarByNome(@PathVariable(name = "nome") String nome) {
+        Optional<cFamiliar> familiarByNome = familiarService.findFamiliarByNome(nome);
+        return familiarByNome.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+
+    }
+
+    @GetMapping(path = "/cpf/{cpf}")
+    public ResponseEntity<cFamiliar> findPacienteByCpf(@PathVariable(name = "cpf") String cpf) {
+        Optional<cFamiliar> familiarByCpf = familiarService.findFamiliarByCpf(cpf);
+        return familiarByCpf.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
