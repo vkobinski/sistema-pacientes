@@ -64,4 +64,9 @@ public class PacienteController {
         return pacienteByCpf.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<cPaciente> editPaciente(@PathVariable(name = "id") Long id, @RequestBody cPaciente paciente) {
+        return ResponseEntity.ok(pacienteService.updatePaciente(id, paciente));
+    }
+
 }

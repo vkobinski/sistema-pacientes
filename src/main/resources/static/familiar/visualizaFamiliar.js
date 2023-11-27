@@ -1,6 +1,61 @@
 const tabela = document.getElementById("tabela");
 const tabelaHTML = tabela.innerHTML;
 
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const arg1 = urlParams.get("id");
+
+window.onload = function () {
+  document
+      .getElementById("visualizaEndereco")
+      .contentWindow.criaEnderecoTabela(arg1);
+};
+
+preencheTabela(arg1);
+
+
+function atualizar() {
+
+  let input = gatherInputValues();
+
+  fetch("/api/v1/familiar/" + arg1, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(input)
+  });
+}
+
+function gatherInputValues() {
+  var rg = document.getElementById('rgInput').value;
+  var nome = document.getElementById('nomeInput').value;
+  var nascimento = document.getElementById('nascimentoInput').value;
+  var profissao = document.getElementById('profissaoInput').value;
+  var telefone = document.getElementById('telefoneInput').value;
+  var sexo = document.getElementById('sexoInput').value;
+  var estadoCivil = document.getElementById('estadoCivilInput').value;
+  var socioeconomica = document.getElementById('socioeconomicaInput').value;
+  var parentesco = document.getElementById('parentescoInput').value;
+  var atendido = document.getElementById('atendidoInput').value;
+  var condicoes = document.getElementById('condicoesInput').value;
+
+  return {
+    rg: rg,
+    nome: nome,
+    nascimento: nascimento,
+    profissao: profissao,
+    telefone: telefone,
+    sexo: sexo,
+    estadoCivil: estadoCivil,
+    socioeconomica: socioeconomica,
+    parentesco: parentesco,
+    condicoesTrabalho: condicoes,
+    atendido: atendido
+  };
+}
+
 function preencheTabela(id) {
   fetch("/api/v1/familiar/" + id, {
     method: "GET",
@@ -27,34 +82,26 @@ function preencheTabela(id) {
       let cellSocioeconomica = row.insertCell(9);
       let cellParentesco = row.insertCell(10);
       let cellAtendido = row.insertCell(11);
-      let cellCondicoes = row.insertCell(15);
+      let cellCondicoes = row.insertCell(12);
+
       cellCondicoes.innerHTML =
-        "<textarea disabled='true'>" +
-        element["condicoesTrabalho"] +
+        "<textarea id='condicoesInput' >" +
+        data["condicoesTrabalho"] +
         "</textarea>";
 
       cellId.innerHTML = data["id_pessoa"];
-      cellRg.innerHTML = data["rg"];
       cellCpf.innerHTML = data["cpf"];
-      cellNome.innerHTML = data["nome"];
-      cellNascimento.innerHTML = data["dataNascimento"];
-      cellProfissao.innerHTML = data["profissao"];
-      cellTelefone.innerHTML = data["telefone"];
-      cellSexo.innerHTML = data["sexo"];
-      cellEstadoCivil.innerHTML = data["estadoCivil"];
-      cellSocioeconomica.innerHTML = data["socioeconomica"]["nome"];
-      cellParentesco.innerHTML = data["grauParentesco"];
-      cellAtendido.innerHTML = data["atendido"]["nome"];
+      cellRg.innerHTML = "<input id='rgInput' value='" + data["rg"] + "'>";
+      cellNome.innerHTML = "<input id='nomeInput' value='" + data["nome"] + "'>";
+      cellNascimento.innerHTML = "<input id='nascimentoInput' type='date' value='" + data["dataNascimento"] + "'>";
+      cellProfissao.innerHTML = "<input id='profissaoInput' value='" + data["profissao"] + "'>";
+      cellTelefone.innerHTML = "<input id='telefoneInput' value='" + data["telefone"] + "'>";
+      cellSexo.innerHTML = "<input id='sexoInput' value='" + data["sexo"] + "'>";
+      cellEstadoCivil.innerHTML = "<input id='estadoCivilInput' value='" + data["estadoCivil"] + "'>";
+      cellSocioeconomica.innerHTML = "<input id='socioeconomicaInput' value='" + data["socioeconomica"]["nome"] + "'>";
+      cellParentesco.innerHTML = "<input id='parentescoInput' value='" + data["grauParentesco"] + "'>";
+      cellAtendido.innerHTML = "<input id='atendidoInput' value='" + data["atendido"]['nome'] + "'>";
 
-      window.onload = function () {
-        document
-          .getElementById("visualizaEndereco")
-          .contentWindow.criaEnderecoTabela(data["endereco"]["id_endereco"]);
-      };
     });
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-
-const arg1 = urlParams.get("id");
-preencheTabela(arg1);

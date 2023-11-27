@@ -1,7 +1,8 @@
 package br.com.uepg.sistemapacientes.deserializer;
 
 import br.com.uepg.sistemapacientes.models.Enums.EstagioDoenca;
-import br.com.uepg.sistemapacientes.models.Enums.SituacaoSocioeconomica;
+import br.com.uepg.sistemapacientes.models.cAtendido;
+import br.com.uepg.sistemapacientes.repositories.AtendidoRepository;
 import br.com.uepg.sistemapacientes.repositories.EstagioDoencaRepository;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -14,24 +15,24 @@ import org.springframework.boot.jackson.JsonComponent;
 import java.io.IOException;
 
 @JsonComponent
-public class EstagioDoencaDeserializer extends JsonDeserializer<EstagioDoenca> {
+public class AtendidoDeserializer extends JsonDeserializer<cAtendido> {
 
 
-    private final EstagioDoencaRepository repository;
+    private final AtendidoRepository repository;
 
     @Autowired
-    public EstagioDoencaDeserializer(EstagioDoencaRepository repository) {
+    public AtendidoDeserializer(AtendidoRepository repository) {
         this.repository = repository;
     }
 
 
     @Override
-    public EstagioDoenca deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
+    public cAtendido deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
         String estagioString = p.getText();
-        EstagioDoenca estagioDoenca = repository.getEstagioDoencaByNomeContaining(estagioString);
+        cAtendido estagioDoenca = repository.getByNomeContaining(estagioString);
 
         if(estagioDoenca == null) {
-            throw new JsonParseException(p, "Invalid EstagioDoenca: " + estagioString);
+            throw new JsonParseException(p, "Invalid cAtendido: " + estagioString);
         }
 
         return estagioDoenca;

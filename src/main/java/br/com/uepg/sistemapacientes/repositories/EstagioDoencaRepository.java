@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface EstagioDoencaRepository extends JpaRepository<EstagioDoenca, Long> {
 
     public EstagioDoenca findEstagioDoencaByNome(String nome);
+    public EstagioDoenca getEstagioDoencaByNomeContaining(String nome);
 }

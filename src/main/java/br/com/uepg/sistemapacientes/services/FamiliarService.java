@@ -4,7 +4,9 @@ import br.com.uepg.sistemapacientes.models.cFamiliar;
 import br.com.uepg.sistemapacientes.models.cPaciente;
 import br.com.uepg.sistemapacientes.repositories.EnderecoRepository;
 import br.com.uepg.sistemapacientes.repositories.FamiliarRepository;
+import br.com.uepg.sistemapacientes.utils.UpdateUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,5 +46,21 @@ public class FamiliarService {
 
     public Optional<cFamiliar> findFamiliarByCpf(String cpf) {
         return familiarRepository.findByCpf(cpf);
+    }
+
+    public cFamiliar updateFamiliar(Long id, cFamiliar updateFamiliar) {
+       Optional<cFamiliar> opFamiliar = familiarRepository.findById(id);
+
+       if(opFamiliar.isPresent()) {
+
+           cFamiliar existingFamiliar = opFamiliar.get();
+           BeanUtils.copyProperties(updateFamiliar, existingFamiliar, UpdateUtils.getNullPropertyNames(updateFamiliar));
+           familiarRepository.save(existingFamiliar);
+
+           return existingFamiliar;
+       }
+
+       return null;
+
     }
 }

@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface TipoRefeicaoRepository extends JpaRepository<TipoRefeicao, Long> {
 
     public TipoRefeicao getTipoRefeicaoByNome(String nome);
+
+    public TipoRefeicao getTipoRefeicaoByNomeContaining(String nome);
 }

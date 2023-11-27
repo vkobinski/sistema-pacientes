@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface QuartoHospedagemRepository extends JpaRepository<QuartoHospedagem, Long> {
 
     public QuartoHospedagem getQuartoHospedagemByNome(String nome);
+    public QuartoHospedagem getQuartoHospedagemByNomeContaining(String nome);
 }

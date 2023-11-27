@@ -25,7 +25,7 @@ public class TipoRefeicaoDeserializer extends JsonDeserializer<TipoRefeicao> {
     @Override
     public TipoRefeicao deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
         String estagioString = p.getText();
-        TipoRefeicao tipoRefeicao = repository.getTipoRefeicaoByNome(estagioString);
+        TipoRefeicao tipoRefeicao = repository.getTipoRefeicaoByNomeContaining(estagioString);
 
         if(tipoRefeicao == null) {
             throw new JsonParseException(p, "Invalid TipoRefeicao: " + estagioString);

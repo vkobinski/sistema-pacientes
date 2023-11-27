@@ -13,4 +13,6 @@ public interface AtendidoRepository extends JpaRepository<cAtendido, Long> {
     Optional<cAtendido> findByCpf(String cpf);
     Optional<cAtendido> findByNomeLikeIgnoreCase(String nome);
 
+    cAtendido getByNomeContaining(String nome);
+
 }

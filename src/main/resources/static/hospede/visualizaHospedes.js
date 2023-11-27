@@ -13,7 +13,7 @@ function preencheTabela() {
 
       let i = 1;
 
-      if (data.length == 0) return;
+      if (data.length === 0) return;
 
       if (Array.isArray(data)) {
         data.forEach((element) => {
@@ -39,6 +39,8 @@ function preencheTabela() {
           let cellDataFalecimento = row.insertCell(17);
         let cellCondicoes = row.insertCell(18);
           cellCondicoes.innerHTML = "<textarea disabled='true'>" + element["condicoesTrabalho"] + "</textarea>";
+
+          console.log(element);
 
           cellId.innerHTML = element["id_pessoa"];
           cellRg.innerHTML = element["rg"];

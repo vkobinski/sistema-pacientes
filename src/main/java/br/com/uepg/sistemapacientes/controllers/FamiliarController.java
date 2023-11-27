@@ -72,4 +72,10 @@ public class FamiliarController {
         Optional<cFamiliar> familiarByCpf = familiarService.findFamiliarByCpf(cpf);
         return familiarByCpf.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<cFamiliar> updateFamiliar(@PathVariable(name = "id")Long id, @RequestBody cFamiliar familiar) {
+        return ResponseEntity.ok(familiarService.updateFamiliar(id, familiar));
+    }
+
 }

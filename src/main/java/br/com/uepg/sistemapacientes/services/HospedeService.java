@@ -4,7 +4,10 @@ import br.com.uepg.sistemapacientes.models.cHospede;
 import br.com.uepg.sistemapacientes.models.cPaciente;
 import br.com.uepg.sistemapacientes.repositories.EnderecoRepository;
 import br.com.uepg.sistemapacientes.repositories.HospedeRepository;
+import br.com.uepg.sistemapacientes.utils.UpdateUtils;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,4 +49,21 @@ public class HospedeService {
         return hospedeRepository.findByCpf(cpf);
     }
 
+    @Transactional
+    public cHospede updateHospede(Long id, cHospede hospede) {
+        Optional<cHospede> opHospede = hospedeRepository.findById(id);
+
+        if(opHospede.isPresent()) {
+
+            cHospede existingHospede = opHospede.get();
+
+            BeanUtils.copyProperties(hospede, existingHospede, UpdateUtils.getNullPropertyNames(hospede));
+
+            hospedeRepository.save(existingHospede);
+
+            return existingHospede;
+        }
+
+        return null;
+    }
 }

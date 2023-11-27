@@ -13,7 +13,7 @@ function preencheTabela() {
 
       let i = 1;
 
-      if (data.length == 0) return;
+      if (data.length === 0) return;
 
       if (Array.isArray(data)) {
         data.forEach((element) => {

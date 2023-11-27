@@ -30,7 +30,7 @@ public class cPessoa {
     private Boolean ativo;
 
     @Length(min = 1)
-    @Column(length = 11, unique = true, nullable = false)
+    @Column(length = 11, unique = true, nullable = false, updatable = false)
     private String cpf;
 
     @Length(min = 1)
@@ -53,6 +53,7 @@ public class cPessoa {
     @Column(name="DESC", columnDefinition="TEXT")
     private String condicoesTrabalho;
 
+    @Getter
     @OneToOne
     private cEndereco endereco;
 
@@ -71,10 +72,6 @@ public class cPessoa {
     @Length(min = 1)
     @Column
     private String estadoCivil;
-
-    public cEndereco getEndereco() {
-        return endereco;
-    }
 
     public void setEndereco(cEndereco endereco) {
         this.endereco = endereco;

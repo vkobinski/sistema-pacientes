@@ -4,6 +4,7 @@ import br.com.uepg.sistemapacientes.models.Enums.*;
 import br.com.uepg.sistemapacientes.models.cEndereco;
 import br.com.uepg.sistemapacientes.models.cPessoa;
 import br.com.uepg.sistemapacientes.repositories.*;
+import br.com.uepg.sistemapacientes.utils.TestUtils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,8 +22,8 @@ public class SistemaDePacientesApplication {
 
 	@Bean
 	CommandLineRunner init(PessoaRepository pessoaRepository, EnderecoRepository enderecoRepository, TipoRecursoRepository recursoRepository, TipoMaterialRepository tipoMaterialRepository, TipoCabeloRepository tipoCabeloRepository,
-							TipoAlimentoRepository tipoAlimentoRepository, EspecialidadeRepository especialidadeRepository, PacienteRepository pacienteRepository, SituacaoSocioeconomicaRepository situacaoSocioeconomicaRepository,
-						   EstagioDoencaRepository estagioDoencaRepository, QuartoHospedagemRepository quartoHospedagemRepository, TipoRefeicaoRepository tipoRefeicaoRepository) {
+							TipoAlimentoRepository tipoAlimentoRepository, EspecialidadeRepository especialidadeRepository, PacienteRepository pacienteRepository, HospedeRepository hospedeRepository,SituacaoSocioeconomicaRepository situacaoSocioeconomicaRepository,
+						   EstagioDoencaRepository estagioDoencaRepository, QuartoHospedagemRepository quartoHospedagemRepository, TipoRefeicaoRepository tipoRefeicaoRepository, FamiliarRepository familiarRepository, CursoRepository cursoRepository, EmprestimoRepository emprestimoRepository) {
 		return (args) -> {
 
 
@@ -86,6 +87,30 @@ public class SistemaDePacientesApplication {
 			TipoRefeicao tipoRefeicao = new TipoRefeicao();
 			tipoRefeicao.setNome("Vegetariana");
 			tipoRefeicaoRepository.save(tipoRefeicao);
+
+			TestUtils test = new TestUtils(familiarRepository,
+					hospedeRepository,
+					enderecoRepository,
+					pacienteRepository,
+					cursoRepository,
+					situacaoSocioeconomicaRepository,
+					estagioDoencaRepository,
+					emprestimoRepository,
+					quartoHospedagemRepository,
+					tipoRefeicaoRepository
+					);
+
+			test.generateRandomPaciente();
+			test.generateRandomPaciente();
+			test.generateRandomPaciente();
+
+			test.generateRandomHospede();
+			test.generateRandomHospede();
+			test.generateRandomHospede();
+
+			test.generateRandomFamiliar();
+			test.generateRandomFamiliar();
+			test.generateRandomFamiliar();
 		};
 	}
 }

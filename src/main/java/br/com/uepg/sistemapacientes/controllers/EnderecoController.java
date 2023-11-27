@@ -4,6 +4,7 @@ import br.com.uepg.sistemapacientes.models.Enums.TipoAlimento;
 import br.com.uepg.sistemapacientes.models.Enums.TipoRecurso;
 import br.com.uepg.sistemapacientes.models.cAlimento;
 import br.com.uepg.sistemapacientes.models.cEndereco;
+import br.com.uepg.sistemapacientes.models.cFamiliar;
 import br.com.uepg.sistemapacientes.services.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,5 +40,10 @@ public class EnderecoController {
     @GetMapping("/{id}")
     public ResponseEntity<cEndereco> getEnderecoById(@PathVariable(name = "id") Long id) {
         return ResponseEntity.ok(enderecoService.getEnderecoById(id));
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<cEndereco> updateEndereco(@PathVariable(name = "id")Long id, @RequestBody cEndereco endereco) {
+        return ResponseEntity.ok(enderecoService.updateEndreco(id, endereco));
     }
 }

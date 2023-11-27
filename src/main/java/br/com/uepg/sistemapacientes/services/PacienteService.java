@@ -4,13 +4,19 @@ import br.com.uepg.sistemapacientes.models.cEndereco;
 import br.com.uepg.sistemapacientes.models.cPaciente;
 import br.com.uepg.sistemapacientes.repositories.EnderecoRepository;
 import br.com.uepg.sistemapacientes.repositories.PacienteRepository;
+import br.com.uepg.sistemapacientes.utils.UpdateUtils;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @Slf4j
@@ -48,4 +54,23 @@ public class PacienteService {
     public Optional<cPaciente> findPacienteByCpf(String cpf) {
         return pacienteRepository.findByCpf(cpf);
     }
+
+    @Transactional
+    public cPaciente updatePaciente(Long id, cPaciente paciente) {
+        Optional<cPaciente> opPaciente = pacienteRepository.findById(id);
+
+        if(opPaciente.isPresent()) {
+
+            cPaciente existingPaciente = opPaciente.get();
+
+            BeanUtils.copyProperties(paciente, existingPaciente, UpdateUtils.getNullPropertyNames(paciente));
+
+            pacienteRepository.save(existingPaciente);
+
+            return existingPaciente;
+        }
+
+        return null;
+    }
+
 }

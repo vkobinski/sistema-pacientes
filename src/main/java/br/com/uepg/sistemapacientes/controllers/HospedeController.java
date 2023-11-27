@@ -71,4 +71,9 @@ public class HospedeController {
         return hospedeByCpf.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<cHospede> updateHospede(@PathVariable(name = "id") Long id, @RequestBody cHospede hospede) {
+        return ResponseEntity.ok(hospedeService.updateHospede(id, hospede));
+    }
+
 }

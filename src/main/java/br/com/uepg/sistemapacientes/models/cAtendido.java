@@ -28,5 +28,23 @@ public class cAtendido extends cPessoa{
 
     @ManyToMany(mappedBy = "atendido", fetch = FetchType.LAZY)
     private Set<cEmprestimo> emprestimos;
+
+    public cAtendido(cPessoa pessoa) {
+        this.setAtivo(pessoa.getAtivo());
+        this.setRg(pessoa.getRg());
+        this.setCpf(pessoa.getCpf());
+        this.setNome(pessoa.getNome());
+        this.setSexo(pessoa.getSexo());
+        this.setDataNascimento(pessoa.getDataNascimento());
+        this.setProfissao(pessoa.getProfissao());
+        this.setRedesSociais(pessoa.getRedesSociais());
+        this.setCondicoesTrabalho(pessoa.getCondicoesTrabalho());
+        this.setTelefone(pessoa.getTelefone());
+        this.setSocioeconomica(pessoa.getSocioeconomica());
+        this.setEstadoCivil(pessoa.getEstadoCivil());
+        this.setEndereco(pessoa.getEndereco());
+        this.setData_registro(pessoa.getData_registro());
+        this.setEndereco(pessoa.getEndereco());
+    }
 }
 

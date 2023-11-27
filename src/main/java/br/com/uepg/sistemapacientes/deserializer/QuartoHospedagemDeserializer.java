@@ -27,7 +27,7 @@ public class QuartoHospedagemDeserializer extends JsonDeserializer<QuartoHospeda
     @Override
     public QuartoHospedagem deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
         String estagioString = p.getText();
-        QuartoHospedagem quartoHospedagem = repository.getQuartoHospedagemByNome(estagioString);
+        QuartoHospedagem quartoHospedagem = repository.getQuartoHospedagemByNomeContaining(estagioString);
 
         if(quartoHospedagem == null) {
             throw new JsonParseException(p, "Invalid QuartoHospedagem: " + estagioString);
