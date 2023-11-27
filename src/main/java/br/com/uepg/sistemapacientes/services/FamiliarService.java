@@ -63,4 +63,8 @@ public class FamiliarService {
        return null;
 
     }
+
+    public long countFamiliar() {
+        return familiarRepository.count();
+    }
 }

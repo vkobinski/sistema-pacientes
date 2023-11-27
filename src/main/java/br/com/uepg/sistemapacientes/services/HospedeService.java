@@ -66,4 +66,8 @@ public class HospedeService {
 
         return null;
     }
+
+    public long countHospede() {
+        return hospedeRepository.count();
+    }
 }

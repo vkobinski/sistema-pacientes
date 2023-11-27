@@ -37,7 +37,6 @@ public class PacienteService {
 
     public cPaciente findPacienteById(Long id) {
         Optional<cPaciente> byId = pacienteRepository.findById(id);
-
         return byId.get();
     }
 
@@ -71,6 +70,10 @@ public class PacienteService {
         }
 
         return null;
+    }
+
+    public long countPaciente() {
+        return pacienteRepository.count();
     }
 
 }
