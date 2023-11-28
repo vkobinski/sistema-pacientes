@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,7 @@ public class FamiliarService {
     }
 
     public cFamiliar criaFamiliar(cFamiliar familiar) {
+        familiar.setData_registro(new java.sql.Date(Instant.now().toEpochMilli()));
         return familiarRepository.save(familiar);
     }
 

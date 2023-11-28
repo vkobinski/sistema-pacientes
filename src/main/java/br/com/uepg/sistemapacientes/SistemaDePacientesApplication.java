@@ -10,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -72,21 +73,41 @@ public class SistemaDePacientesApplication {
 				especialidadeRepository.save(especialidade);
 			}
 
-			SituacaoSocioeconomica socioeconomica = new SituacaoSocioeconomica();
-			socioeconomica.setNome("Teste");
-			situacaoSocioeconomicaRepository.save(socioeconomica);
+			List<String> economicas = Arrays.asList("Classe Alta", "Classe Média", "Classe Média-Baixa", "Classe Baixa");
 
-			EstagioDoenca estagioDoenca = new EstagioDoenca();
-			estagioDoenca.setNome("Teste");
-			estagioDoencaRepository.save(estagioDoenca);
+			for(String tipo : economicas) {
+				SituacaoSocioeconomica socioeconomica = new SituacaoSocioeconomica();
+				socioeconomica.setNome(tipo);
+				situacaoSocioeconomicaRepository.save(socioeconomica);
+			}
 
-			QuartoHospedagem quartoHospedagem = new QuartoHospedagem();
-			quartoHospedagem.setNome("15");
-			quartoHospedagemRepository.save(quartoHospedagem);
 
-			TipoRefeicao tipoRefeicao = new TipoRefeicao();
-			tipoRefeicao.setNome("Vegetariana");
-			tipoRefeicaoRepository.save(tipoRefeicao);
+			List<String> estagios = Arrays.asList("Estágio 0", "Estágio 1", "Estágio 2", "Estágio 3", "Estágio 4");
+
+			for(String tipo : estagios) {
+				EstagioDoenca estagioDoenca = new EstagioDoenca();
+				estagioDoenca.setNome(tipo);
+				estagioDoencaRepository.save(estagioDoenca);
+			}
+
+			List<String> quartos = new ArrayList<>();
+			for(int i = 0; i < 20; i++) {
+				quartos.add(String.valueOf(i+1));
+			}
+
+			for(String tipo : quartos) {
+				QuartoHospedagem quartoHospedagem = new QuartoHospedagem();
+				quartoHospedagem.setNome(tipo);
+				quartoHospedagemRepository.save(quartoHospedagem);
+			}
+
+			List<String> refeicoes = Arrays.asList("dieta normal", "geral", "dieta branda", "dieta pastosa", "dieta líquida-pastosa", "dieta líquida", "dieta líquida completa", "dieta líquida restrita");
+
+			for(String tipo : refeicoes) {
+				TipoRefeicao refeicao = new TipoRefeicao();
+				refeicao.setNome(tipo);
+				tipoRefeicaoRepository.save(refeicao);
+			}
 
 			TestUtils test = new TestUtils(familiarRepository,
 					hospedeRepository,

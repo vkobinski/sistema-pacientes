@@ -25,4 +25,8 @@ public class QuartoHospedagemService {
     public QuartoHospedagem getQuartoHospedagemByNome(String nome) {
         return quartoHospedagemRepository.getQuartoHospedagemByNome(nome);
     }
+
+    public QuartoHospedagem cria(QuartoHospedagem hospedagem) {
+        return quartoHospedagemRepository.save(hospedagem);
+    }
 }

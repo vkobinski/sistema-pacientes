@@ -3,10 +3,12 @@ package br.com.uepg.sistemapacientes.services;
 import br.com.uepg.sistemapacientes.models.cFamiliar;
 import br.com.uepg.sistemapacientes.models.cHospede;
 import br.com.uepg.sistemapacientes.models.cPaciente;
+import br.com.uepg.sistemapacientes.models.cPessoa;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.hibernate.result.Output;
+import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -125,18 +129,118 @@ public class RelatorioService {
 
     }
 
+    public boolean checkThisMonth(java.sql.Date date1, java.sql.Date date2) {
+
+        if(date1 == null || date2 == null) return false;
+
+        return date1.getMonth() == date2.getMonth() && date1.getYear() == date2.getYear();
+    }
+
+    public void getNovosAtendidos() {
+        List<cPaciente> pacientes = pacienteService.getPacientes();
+        List<cHospede> hospedes = hospedeService.getHospedes();
+        List<cFamiliar> familiares = familiarService.getFamiliares();
+
+        Sheet sheet = wb.createSheet("Novos Pacientes");
+
+        Row titleRow = sheet.createRow(0);
+        titleRow.createCell(0).setCellValue("Data");
+        titleRow.createCell(1).setCellValue("Paciente");
+
+        List<cPessoa> pessoas = new ArrayList<>();
+
+        java.sql.Date atual = new java.sql.Date(Instant.now().toEpochMilli());
+
+        pacientes.forEach(paciente -> {
+            if(checkThisMonth(paciente.getData_registro(),atual)) {
+                pessoas.add(paciente);
+            }
+        });
+
+        hospedes.forEach(paciente -> {
+            if(checkThisMonth(paciente.getData_registro(),atual)) {
+                pessoas.add(paciente);
+            }
+        });
+
+        familiares.forEach(familiar -> {
+            if(checkThisMonth(familiar.getData_registro(),atual)) {
+                pessoas.add(familiar);
+            }
+        });
+
+        pessoas.forEach( s -> {
+            int iRow = sheet.getLastRowNum() + 1;
+
+            Row curRow = sheet.createRow(iRow);
+
+            String strDate = new SimpleDateFormat("dd-MM-yy").format(s.getData_registro());
+
+            curRow.createCell(0).setCellValue(strDate);
+            curRow.createCell(1).setCellValue(s.getNome());
+
+        });
+
+    }
+
+    public void getFalecimentos() {
+        List<cPaciente> pacientes = pacienteService.getPacientes();
+        List<cHospede> hospedes = hospedeService.getHospedes();
+
+        Sheet sheet = wb.createSheet("Falecimentos");
+
+        Row titleRow = sheet.createRow(0);
+        titleRow.createCell(0).setCellValue("Data");
+        titleRow.createCell(1).setCellValue("Paciente");
+
+        List<cPessoa> pessoas = new ArrayList<>();
+
+        java.sql.Date atual = new java.sql.Date(Instant.now().toEpochMilli());
+
+        pacientes.forEach(paciente -> {
+            if(checkThisMonth(paciente.getData_falecimento(),atual)) {
+                pessoas.add(paciente);
+            }
+        });
+
+        hospedes.forEach(paciente -> {
+            if(checkThisMonth(paciente.getData_falecimento(),atual)) {
+                pessoas.add(paciente);
+            }
+        });
+
+        pessoas.forEach( s -> {
+            int iRow = sheet.getLastRowNum() + 1;
+
+            Row curRow = sheet.createRow(iRow);
+
+            String strDate = new SimpleDateFormat("dd-MM-yy").format(s.getData_registro());
+
+            curRow.createCell(0).setCellValue(strDate);
+            curRow.createCell(1).setCellValue(s.getNome());
+
+        });
+
+    }
+
+
+
     public ByteArrayOutputStream gerarRelatorio() {
 
         getNumeroAtendidos();
         getTipoCancro();
         getSexo();
+        getNovosAtendidos();
+        getFalecimentos();
 
         try (ByteArrayOutputStream fileOut = new ByteArrayOutputStream()) {
             wb.write(fileOut);
+            wb = new HSSFWorkbook();
             return fileOut;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
 
     }
 }

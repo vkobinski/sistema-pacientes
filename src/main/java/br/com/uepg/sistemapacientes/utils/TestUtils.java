@@ -9,6 +9,7 @@ import com.github.javafaker.Faker;
 
 import java.sql.Time;
 import java.time.Instant;
+import java.util.concurrent.TimeUnit;
 
 public class TestUtils {
     private final Faker faker = new Faker();
@@ -63,7 +64,6 @@ public class TestUtils {
         return curso;
     }
 
-
     public cPessoa generatePessoa() {
 
         cPessoa pessoa = new cPessoa();
@@ -78,7 +78,7 @@ public class TestUtils {
         pessoa.setRedesSociais(faker.random().nextBoolean());
         pessoa.setCondicoesTrabalho(faker.lorem().sentence());
         pessoa.setTelefone(faker.phoneNumber().cellPhone().substring(3));
-        pessoa.setSocioeconomica(situacaoSocioeconomicaRepository.findAll().get(0));
+        pessoa.setSocioeconomica(situacaoSocioeconomicaRepository.findAll().get(faker.number().numberBetween(0,2)));
         pessoa.setEstadoCivil(faker.hacker().abbreviation());
         pessoa.setEndereco(generateEndereco());
         pessoa.setData_registro(new java.sql.Date(Instant.now().toEpochMilli()));
@@ -93,24 +93,17 @@ public class TestUtils {
     }
 
     public EstagioDoenca generateEstagioDoenca() {
-        EstagioDoenca estagioDoenca = new EstagioDoenca();
-        estagioDoenca.setNome(faker.animal().name());
-        estagioDoenca.setAtivo(true);
 
-        EstagioDoenca save = estagioDoencaRepository.save(estagioDoenca);
-
-        return save;
+        return estagioDoencaRepository.findAll().get(faker.number().numberBetween(0,4));
     }
 
     public cAtendido generateAtendido() {
         cAtendido atendido = new cAtendido(generatePessoa());
 
-        atendido.setData_falecimento(getDate(faker.date().birthday()));
+        atendido.setData_falecimento(faker.options().option(getDate(faker.date().future(4, TimeUnit.DAYS)), null));
         atendido.setEstagioDoenca(generateEstagioDoenca());
         atendido.setTipo_cancro(faker.ancient().hero());
         atendido.setEmprestimos(null);
-
-        System.out.println(atendido.getEstagioDoenca().getIdEstagioDoenca());
 
         return atendido;
     }
@@ -120,7 +113,6 @@ public class TestUtils {
         cPaciente paciente = new cPaciente(generateAtendido());
 
         paciente.setNivel_prioridade(faker.number().numberBetween(1, 10));
-
 
         pacienteRepository.save(paciente);
         return paciente;
@@ -138,18 +130,12 @@ public class TestUtils {
     }
 
     public QuartoHospedagem generateQuartoHospedagem() {
-        QuartoHospedagem quartoHospedagem = new QuartoHospedagem();
-        quartoHospedagem.setNome(String.valueOf(faker.number().numberBetween(1, 10)));
-
-        return quartoHospedagemRepository.save(quartoHospedagem);
+        return quartoHospedagemRepository.findAll().get(faker.number().numberBetween(0,19));
 
     }
 
     public TipoRefeicao generateTipoRefeicao() {
-        TipoRefeicao tipoRefeicao = new TipoRefeicao();
-        tipoRefeicao.setNome(faker.food().dish());
-
-        return tipoRefeicaoRepository.save(tipoRefeicao);
+        return tipoRefeicaoRepository.findAll().get(faker.number().numberBetween(0,4));
 
     }
 

@@ -13,6 +13,8 @@ import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -41,6 +43,7 @@ public class PacienteService {
     }
 
     public cPaciente criaPaciente(cPaciente paciente) {
+        paciente.setData_registro(new java.sql.Date(Instant.now().toEpochMilli()));
 
         return pacienteRepository.save(paciente);
     }

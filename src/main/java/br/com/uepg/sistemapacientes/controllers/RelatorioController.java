@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 
 @RestController
 @RequestMapping("api/v1/relatorio")
@@ -31,9 +33,11 @@ public class RelatorioController {
 
         ByteArrayOutputStream stream = relatorioService.gerarRelatorio();
 
+        String strDate = new SimpleDateFormat("dd-MM-yy").format(new java.sql.Date(Instant.now().toEpochMilli()));
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"));
-        headers.setContentDispositionFormData("attachment", "relatorio.xlsx");
+        headers.setContentDispositionFormData("attachment", "relatorio" + strDate + ".xlsx");
 
         return new ResponseEntity<>(stream.toByteArray(), headers, HttpStatus.OK);
     }

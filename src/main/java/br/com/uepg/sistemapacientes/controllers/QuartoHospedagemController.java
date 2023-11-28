@@ -5,10 +5,9 @@ import br.com.uepg.sistemapacientes.models.Enums.QuartoHospedagem;
 import br.com.uepg.sistemapacientes.services.QuartoHospedagemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -25,5 +24,15 @@ public class QuartoHospedagemController {
     @GetMapping
     public ResponseEntity<List<QuartoHospedagem>> getQuartosHospedagem() {
         return ResponseEntity.ok(quartoHospedagemService.getQuartoHospedagem());
+    }
+
+    @PostMapping
+    public ResponseEntity<QuartoHospedagem> criaQuartoHospedagem(@RequestBody HashMap<String, Object> dados) {
+
+        String nomeQuarto = (String) dados.get("nome");
+        QuartoHospedagem quartoHospedagem = new QuartoHospedagem();
+        quartoHospedagem.setNome(nomeQuarto);
+
+        return ResponseEntity.ok(quartoHospedagemService.cria(quartoHospedagem));
     }
 }
