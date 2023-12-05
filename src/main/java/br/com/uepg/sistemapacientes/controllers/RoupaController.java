@@ -3,6 +3,7 @@ package br.com.uepg.sistemapacientes.controllers;
 import br.com.uepg.sistemapacientes.models.Enums.TipoCabelo;
 import br.com.uepg.sistemapacientes.models.Enums.TipoRecurso;
 import br.com.uepg.sistemapacientes.models.cCabelo;
+import br.com.uepg.sistemapacientes.models.cMaterial;
 import br.com.uepg.sistemapacientes.models.cRoupa;
 import br.com.uepg.sistemapacientes.services.CabeloService;
 import br.com.uepg.sistemapacientes.services.RoupaService;
@@ -35,6 +36,11 @@ public class RoupaController {
     @GetMapping
     public ResponseEntity<List<cRoupa>> getRoupas() {
         return ResponseEntity.ok(roupaService.getRoupas());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<cRoupa> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(roupaService.getById(id));
     }
 
     @PostMapping

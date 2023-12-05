@@ -27,5 +27,9 @@ public class RoupaService {
         return roupaRepository.save(cRoupa);
     }
 
+    public cRoupa getById(Long id) {
+        return roupaRepository.findById(id).get();
+    }
+
 
 }

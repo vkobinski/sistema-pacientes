@@ -32,6 +32,11 @@ public class MedicamentoController {
         return ResponseEntity.ok(medicamentoService.getMedicamentos());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<cMedicamento> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(medicamentoService.getById(id));
+    }
+
     @PostMapping
     public ResponseEntity<cMedicamento> createMedicamento(@RequestBody Map<String, Object> medicamentoCampos) throws ParseException {
         cMedicamento medicamento = new cMedicamento();

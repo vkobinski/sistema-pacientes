@@ -27,4 +27,8 @@ public class MaterialService {
         return materialRepository.save(material);
     }
 
+    public cMaterial getById(Long id) {
+        return materialRepository.findById(id).get();
+    }
+
 }

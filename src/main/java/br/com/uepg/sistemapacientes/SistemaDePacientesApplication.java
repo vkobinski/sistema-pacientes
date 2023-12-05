@@ -1,8 +1,6 @@
 package br.com.uepg.sistemapacientes;
 
 import br.com.uepg.sistemapacientes.models.Enums.*;
-import br.com.uepg.sistemapacientes.models.cEndereco;
-import br.com.uepg.sistemapacientes.models.cPessoa;
 import br.com.uepg.sistemapacientes.repositories.*;
 import br.com.uepg.sistemapacientes.utils.TestUtils;
 import org.springframework.boot.CommandLineRunner;
@@ -24,7 +22,7 @@ public class SistemaDePacientesApplication {
 	@Bean
 	CommandLineRunner init(PessoaRepository pessoaRepository, EnderecoRepository enderecoRepository, TipoRecursoRepository recursoRepository, TipoMaterialRepository tipoMaterialRepository, TipoCabeloRepository tipoCabeloRepository,
 							TipoAlimentoRepository tipoAlimentoRepository, EspecialidadeRepository especialidadeRepository, PacienteRepository pacienteRepository, HospedeRepository hospedeRepository,SituacaoSocioeconomicaRepository situacaoSocioeconomicaRepository,
-						   EstagioDoencaRepository estagioDoencaRepository, QuartoHospedagemRepository quartoHospedagemRepository, TipoRefeicaoRepository tipoRefeicaoRepository, FamiliarRepository familiarRepository, CursoRepository cursoRepository, EmprestimoRepository emprestimoRepository) {
+						   EstagioDoencaRepository estagioDoencaRepository, QuartoHospedagemRepository quartoHospedagemRepository, TipoRefeicaoRepository tipoRefeicaoRepository, FamiliarRepository familiarRepository, CursoRepository cursoRepository, EmprestimoRepository emprestimoRepository, MedicamentoRepository medicamentoRepository, AlimentoRepository alimentoRepository, MaterialRepository materialRepository, RoupaRepository roupaRepository, CabeloRepository cabeloRepository, TipoRecursoRepository tipoRecursoRepository) {
 		return (args) -> {
 
 
@@ -118,8 +116,8 @@ public class SistemaDePacientesApplication {
 					estagioDoencaRepository,
 					emprestimoRepository,
 					quartoHospedagemRepository,
-					tipoRefeicaoRepository
-					);
+					tipoRefeicaoRepository,
+                    medicamentoRepository, alimentoRepository, cabeloRepository, materialRepository, roupaRepository, tipoRecursoRepository);
 
 			test.generateRandomPaciente();
 			test.generateRandomPaciente();
@@ -132,6 +130,9 @@ public class SistemaDePacientesApplication {
 			test.generateRandomFamiliar();
 			test.generateRandomFamiliar();
 			test.generateRandomFamiliar();
+
+			test.generateMedicamento();
+			test.generateRoupa();
 		};
 	}
 }

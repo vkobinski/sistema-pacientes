@@ -27,5 +27,8 @@ public class CabeloService {
         return cabeloRepository.save(cCabelo);
     }
 
+    public cCabelo getById(Long id) {
+        return cabeloRepository.findById(id).get();
+    }
 
 }

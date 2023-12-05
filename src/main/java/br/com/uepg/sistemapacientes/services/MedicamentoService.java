@@ -29,6 +29,10 @@ public class MedicamentoService {
         return medicamentoRepository.save(medicamento);
     }
 
+    public cMedicamento getById(Long id) {
+        return medicamentoRepository.findById(id).get();
+    }
+
     @Transactional
     public void addQtdInMedicamento(String nome, int quantidade) {
         List<cMedicamento> medicamentos = medicamentoRepository.getAllByNome(nome);

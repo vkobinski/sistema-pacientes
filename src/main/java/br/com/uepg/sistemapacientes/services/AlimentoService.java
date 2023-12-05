@@ -26,5 +26,9 @@ public class AlimentoService {
         return alimentoRepository.save(alimento);
     }
 
+    public cAlimento getById(Long id) {
+        return  alimentoRepository.findById(id).get();
+    }
+
 
 }

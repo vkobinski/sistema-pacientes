@@ -3,6 +3,7 @@ package br.com.uepg.sistemapacientes.utils;
 import br.com.uepg.sistemapacientes.models.*;
 import br.com.uepg.sistemapacientes.models.Enums.EstagioDoenca;
 import br.com.uepg.sistemapacientes.models.Enums.QuartoHospedagem;
+import br.com.uepg.sistemapacientes.models.Enums.TipoCabelo;
 import br.com.uepg.sistemapacientes.models.Enums.TipoRefeicao;
 import br.com.uepg.sistemapacientes.repositories.*;
 import com.github.javafaker.Faker;
@@ -24,8 +25,14 @@ public class TestUtils {
     private final EmprestimoRepository emprestimoRepository;
     private final QuartoHospedagemRepository quartoHospedagemRepository;
     private final TipoRefeicaoRepository tipoRefeicaoRepository;
+    private final MedicamentoRepository medicamentoRepository;
+    private final AlimentoRepository alimentoRepository;
+    private final CabeloRepository cabeloRepository;
+    private final MaterialRepository materialRepository;
+    private final RoupaRepository roupaRepository;
+    private final TipoRecursoRepository tipoRecursoRepository;
 
-    public TestUtils(FamiliarRepository familiarRepository, HospedeRepository hospedeRepository, EnderecoRepository enderecoRepository, PacienteRepository pacienteRepository, CursoRepository cursoRepository, SituacaoSocioeconomicaRepository situacaoSocioeconomicaRepository, EstagioDoencaRepository estagioDoencaRepository, EmprestimoRepository emprestimoRepository, QuartoHospedagemRepository quartoHospedagemRepository, TipoRefeicaoRepository tipoRefeicaoRepository) {
+    public TestUtils(FamiliarRepository familiarRepository, HospedeRepository hospedeRepository, EnderecoRepository enderecoRepository, PacienteRepository pacienteRepository, CursoRepository cursoRepository, SituacaoSocioeconomicaRepository situacaoSocioeconomicaRepository, EstagioDoencaRepository estagioDoencaRepository, EmprestimoRepository emprestimoRepository, QuartoHospedagemRepository quartoHospedagemRepository, TipoRefeicaoRepository tipoRefeicaoRepository, MedicamentoRepository medicamentoRepository, AlimentoRepository alimentoRepository, CabeloRepository cabeloRepository, MaterialRepository materialRepository, RoupaRepository roupaRepository, TipoRecursoRepository tipoRecursoRepository) {
         this.familiarRepository = familiarRepository;
         this.hospedeRepository = hospedeRepository;
         this.enderecoRepository = enderecoRepository;
@@ -36,6 +43,12 @@ public class TestUtils {
         this.emprestimoRepository = emprestimoRepository;
         this.quartoHospedagemRepository = quartoHospedagemRepository;
         this.tipoRefeicaoRepository = tipoRefeicaoRepository;
+        this.medicamentoRepository = medicamentoRepository;
+        this.alimentoRepository = alimentoRepository;
+        this.cabeloRepository = cabeloRepository;
+        this.materialRepository = materialRepository;
+        this.roupaRepository = roupaRepository;
+        this.tipoRecursoRepository = tipoRecursoRepository;
     }
 
     public cEndereco generateEndereco() {
@@ -155,4 +168,31 @@ public class TestUtils {
 
         return hospede;
     }
+
+    public void generateMedicamento() {
+        cMedicamento medicamento = new cMedicamento();
+        medicamento.setNome(faker.ancient().god());
+        medicamento.setPreco(faker.random().nextDouble());
+        medicamento.setFarmacia_compra(faker.dragonBall().character());
+        medicamento.setQuantidade(1);
+        medicamento.setQuantidadeDoada(1);
+        medicamento.setQuantidadeTotal(1);
+        medicamento.setData_aquisicao(getDate(faker.date().birthday()));
+        medicamento.setTipoRecurso(tipoRecursoRepository.getTipoRecursoByTipo("Medicamento"));
+
+        medicamentoRepository.save(medicamento);
+    }
+
+    public void generateRoupa() {
+        cRoupa medicamento = new cRoupa();
+        medicamento.setQuantidade(1);
+        medicamento.setQuantidadeDoada(1);
+        medicamento.setQuantidadeTotal(1);
+        medicamento.setData_aquisicao(getDate(faker.date().birthday()));
+        medicamento.setTipoRecurso(tipoRecursoRepository.getTipoRecursoByTipo("Medicamento"));
+        medicamento.setKit(1);
+
+        roupaRepository.save(medicamento);
+    }
+
 }

@@ -3,6 +3,7 @@ package br.com.uepg.sistemapacientes.controllers;
 import br.com.uepg.sistemapacientes.models.Enums.TipoAlimento;
 import br.com.uepg.sistemapacientes.models.Enums.TipoRecurso;
 import br.com.uepg.sistemapacientes.models.cAlimento;
+import br.com.uepg.sistemapacientes.models.cMedicamento;
 import br.com.uepg.sistemapacientes.repositories.TipoRecursoRepository;
 import br.com.uepg.sistemapacientes.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class AlimentoController {
         this.alimentoService = alimentoService;
         this.tipoAlimentoService = tipoAlimentoService;
         this.tipoRecursoService = tipoRecursoService;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<cAlimento> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(alimentoService.getById(id));
     }
 
 

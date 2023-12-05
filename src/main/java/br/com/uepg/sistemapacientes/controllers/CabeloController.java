@@ -2,6 +2,7 @@ package br.com.uepg.sistemapacientes.controllers;
 
 import br.com.uepg.sistemapacientes.models.Enums.TipoCabelo;
 import br.com.uepg.sistemapacientes.models.Enums.TipoRecurso;
+import br.com.uepg.sistemapacientes.models.cAlimento;
 import br.com.uepg.sistemapacientes.models.cCabelo;
 import br.com.uepg.sistemapacientes.services.CabeloService;
 import br.com.uepg.sistemapacientes.services.TipoCabeloService;
@@ -29,6 +30,12 @@ public class CabeloController {
         this.cabeloService = cabeloService;
         this.tipoCabeloService = tipoCabeloService;
         this.tipoRecursoService = tipoRecursoService;
+    }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<cCabelo> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(cabeloService.getById(id));
     }
 
 

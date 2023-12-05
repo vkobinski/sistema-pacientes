@@ -5,19 +5,20 @@ import br.com.uepg.sistemapacientes.models.Enums.TipoRefeicao;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+
 
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @ToString
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class cRecurso {
 
     @Id

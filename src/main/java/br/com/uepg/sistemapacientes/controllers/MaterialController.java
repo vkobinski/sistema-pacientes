@@ -34,6 +34,12 @@ public class MaterialController {
     }
 
 
+    @GetMapping("/{id}")
+    public ResponseEntity<cMaterial> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(materialService.getById(id));
+    }
+
+
     @GetMapping
     public ResponseEntity<List<cMaterial>> getMateriais() {
         return ResponseEntity.ok(materialService.getMateriais());
