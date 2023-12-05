@@ -173,7 +173,7 @@ public class TestUtils {
         cMedicamento medicamento = new cMedicamento();
         medicamento.setNome(faker.ancient().god());
         medicamento.setPreco(faker.random().nextDouble());
-        medicamento.setFarmacia_compra(faker.dragonBall().character());
+        medicamento.setFarmacia_compra(faker.backToTheFuture().character());
         medicamento.setQuantidade(1);
         medicamento.setQuantidadeDoada(1);
         medicamento.setQuantidadeTotal(1);
@@ -189,7 +189,7 @@ public class TestUtils {
         medicamento.setQuantidadeDoada(1);
         medicamento.setQuantidadeTotal(1);
         medicamento.setData_aquisicao(getDate(faker.date().birthday()));
-        medicamento.setTipoRecurso(tipoRecursoRepository.getTipoRecursoByTipo("Medicamento"));
+        medicamento.setTipoRecurso(tipoRecursoRepository.getTipoRecursoByTipo("Roupa"));
         medicamento.setKit(1);
 
         roupaRepository.save(medicamento);

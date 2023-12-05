@@ -16,6 +16,7 @@ fetch("/api/v1/medicamento", {
         let cellData = row.insertCell(3);
         let cellPreco = row.insertCell(4);
         let cellFarmacia = row.insertCell(5);
+        let cellDoar = row.insertCell(6);
 
         cellId.innerHTML = element['id_recurso'];
         cellQtd.innerHTML = element['quantidade'];
@@ -23,6 +24,7 @@ fetch("/api/v1/medicamento", {
         cellData.innerHTML = formataData(element['data_aquisicao']);
         cellPreco.innerHTML = "R$" + element['preco'];
         cellFarmacia.innerHTML = element['farmacia_compra'];
+        cellDoar.innerHTML = "<a href='/doacao/criaDoacao.html?id=" + element['id_recurso'] + "'><button>Doar</button></a>"
 
         i++;
         
@@ -46,11 +48,13 @@ fetch("/api/v1/roupa", {
         let cellQtd = row.insertCell(1);
         let cellData = row.insertCell(2);
         let cellKit = row.insertCell(3);
+        let cellDoar = row.insertCell(4);
 
         cellId.innerHTML = element['id_recurso'];
         cellQtd.innerHTML = element['quantidade'];
         cellData.innerHTML = formataData(element['data_aquisicao']);
         cellKit.innerHTML = element['kit'];
+        cellDoar.innerHTML = "<a href='/doacao/criaDoacao.html?id=" + element['id_recurso'] + "'><button>Doar</button></a>"
 
         i++;
         
@@ -74,11 +78,13 @@ fetch("/api/v1/material", {
         let cellQtd = row.insertCell(1);
         let cellData = row.insertCell(2);
         let cellTipo = row.insertCell(3);
+        let cellDoar = row.insertCell(4);
 
         cellId.innerHTML = element['id_recurso'];
         cellQtd.innerHTML = element['quantidade'];
         cellData.innerHTML = formataData(element['data_aquisicao']);
         cellTipo.innerHTML = element['tipoMaterial']['nome'];
+        cellDoar.innerHTML = "<a href='/doacao/criaDoacao.html?id=" + element['id_recurso'] + "'><button>Doar</button></a>"
 
         i++;
         
@@ -103,12 +109,14 @@ fetch("/api/v1/cabelo", {
         let cellData = row.insertCell(2);
         let cellTipo = row.insertCell(3);
         let cellComprimento = row.insertCell(4);
+        let cellDoar = row.insertCell(5);
 
         cellId.innerHTML = element['id_recurso'];
         cellQtd.innerHTML = element['quantidade'];
         cellData.innerHTML = formataData(element['data_aquisicao']);
         cellTipo.innerHTML = element['tipoCabelo']['tipo'];
         cellComprimento.innerHTML = element['comprimento'] + " cm";
+        cellDoar.innerHTML = "<a href='/doacao/criaDoacao.html?id=" + element['id_recurso'] + "'><button>Doar</button></a>"
 
         i++;
         
@@ -133,12 +141,14 @@ fetch("/api/v1/alimento", {
         let cellData = row.insertCell(2);
         let cellNome = row.insertCell(3);
         let cellTipo = row.insertCell(4);
+        let cellDoar = row.insertCell(5);
 
         cellId.innerHTML = element['id_recurso'];
         cellQtd.innerHTML = element['quantidade'];
         cellData.innerHTML = formataData(element['data_aquisicao']);
         cellNome.innerHTML = element['nome'];
         cellTipo.innerHTML = element['tipoAlimento']['nome'];
+        cellDoar.innerHTML = "<a href='/doacao/criaDoacao.html?id=" + element['id_recurso'] + "'><button>Doar</button></a>"
 
         i++;
         

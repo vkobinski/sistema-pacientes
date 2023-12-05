@@ -1,22 +1,14 @@
 package br.com.uepg.sistemapacientes.services;
 
-import br.com.uepg.sistemapacientes.models.cFamiliar;
-import br.com.uepg.sistemapacientes.models.cHospede;
-import br.com.uepg.sistemapacientes.models.cPaciente;
-import br.com.uepg.sistemapacientes.models.cPessoa;
+import br.com.uepg.sistemapacientes.models.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
-import org.hibernate.result.Output;
-import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -30,15 +22,17 @@ public class RelatorioService {
     private final PacienteService pacienteService;
     private final FamiliarService familiarService;
     private final HospedeService hospedeService;
+    private final DoacaoService doacaoService;
     
     Workbook wb;
 
 
     @Autowired
-    public RelatorioService(PacienteService pacienteService, FamiliarService familiarService, HospedeService hospedeService) {
+    public RelatorioService(PacienteService pacienteService, FamiliarService familiarService, HospedeService hospedeService, DoacaoService doacaoService) {
         this.pacienteService = pacienteService;
         this.familiarService = familiarService;
         this.hospedeService = hospedeService;
+        this.doacaoService = doacaoService;
         wb = new HSSFWorkbook();
     }
 
@@ -148,28 +142,22 @@ public class RelatorioService {
         titleRow.createCell(1).setCellValue("Paciente");
 
         List<cPessoa> pessoas = new ArrayList<>();
+        pessoas.addAll(pacientes);
+        pessoas.addAll(hospedes);
+        pessoas.addAll(familiares);
+
+        List<cPessoa> pessoasData = new ArrayList<>();
+
 
         java.sql.Date atual = new java.sql.Date(Instant.now().toEpochMilli());
 
-        pacientes.forEach(paciente -> {
-            if(checkThisMonth(paciente.getData_registro(),atual)) {
-                pessoas.add(paciente);
+        pessoas.forEach(pessoa -> {
+            if(checkThisMonth(pessoa.getData_registro(),atual)) {
+                pessoasData.add(pessoa);
             }
         });
 
-        hospedes.forEach(paciente -> {
-            if(checkThisMonth(paciente.getData_registro(),atual)) {
-                pessoas.add(paciente);
-            }
-        });
-
-        familiares.forEach(familiar -> {
-            if(checkThisMonth(familiar.getData_registro(),atual)) {
-                pessoas.add(familiar);
-            }
-        });
-
-        pessoas.forEach( s -> {
+        pessoasData.forEach( s -> {
             int iRow = sheet.getLastRowNum() + 1;
 
             Row curRow = sheet.createRow(iRow);
@@ -223,6 +211,34 @@ public class RelatorioService {
 
     }
 
+    public void getDoacoes() {
+        List<Doacao> doacoes = doacaoService.getAll();
+
+        Sheet sheet = wb.createSheet("Doações");
+
+        Row titleRow = sheet.createRow(0);
+        titleRow.createCell(0).setCellValue("Data");
+        titleRow.createCell(1).setCellValue("Atendido");
+        titleRow.createCell(2).setCellValue("Tipo Recurso");
+
+
+        java.sql.Date atual = new java.sql.Date(Instant.now().toEpochMilli());
+
+        doacoes.removeIf(doacao -> !checkThisMonth(doacao.getDataDoacao(), atual));
+
+        doacoes.forEach( s -> {
+            int iRow = sheet.getLastRowNum() + 1;
+
+            Row curRow = sheet.createRow(iRow);
+
+            String strDate = new SimpleDateFormat("dd-MM-yy").format(s.getDataDoacao());
+
+            curRow.createCell(0).setCellValue(strDate);
+            curRow.createCell(1).setCellValue(s.getAtendido().getNome());
+            curRow.createCell(2).setCellValue(s.getRecurso().getTipoRecurso().getTipo());
+        });
+    }
+
 
 
     public ByteArrayOutputStream gerarRelatorio() {
@@ -232,6 +248,7 @@ public class RelatorioService {
         getSexo();
         getNovosAtendidos();
         getFalecimentos();
+        getDoacoes();
 
         try (ByteArrayOutputStream fileOut = new ByteArrayOutputStream()) {
             wb.write(fileOut);

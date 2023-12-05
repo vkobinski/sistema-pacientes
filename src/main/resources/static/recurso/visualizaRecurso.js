@@ -37,6 +37,8 @@ function preencheTabela(recurso) {
 
     const tipoRecurso = recurso["tipoRecurso"];
 
+    console.log(tipoRecurso);
+
     switch (tipoRecurso["tipo"]) {
         case "Medicamento":
             i = 0;
