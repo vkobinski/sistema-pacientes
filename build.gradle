@@ -29,6 +29,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.poi/poi
 	implementation 'org.apache.poi:poi-ooxml:4.1.1'
 	implementation('com.fasterxml.jackson.core:jackson-databind:2.12.7.1')
+	implementation 'org.postgresql:postgresql'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql:42.2.27'
