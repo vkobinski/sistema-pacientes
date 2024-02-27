@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  db:
+    image: postgres:latest
+    hostname: db
+    environment:
+      - POSTGRES_PASSWORD=pacientes
+      - POSTGRES_USER=pacientes
+      - POSTGRES_DB=pacientes
+    ports:
+      - "5432:5432"
+
+networks:
+  default:
+    driver: bridge
+    name: pacientes
