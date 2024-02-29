@@ -19,6 +19,6 @@ public class TipoRefeicao {
     private Long idTipoRefeicao;
 
     @Length(min = 1)
-    @Column(length = 30)
+    @Column(length = 30, unique = true)
     private String nome;
 }

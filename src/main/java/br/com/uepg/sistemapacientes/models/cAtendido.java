@@ -26,6 +26,9 @@ public class cAtendido extends cPessoa{
     @Column
     private String tipo_cancro;
 
+    @Column
+    private String tratamento;
+
     @ManyToMany(mappedBy = "atendido", fetch = FetchType.LAZY)
     private Set<cEmprestimo> emprestimos;
 

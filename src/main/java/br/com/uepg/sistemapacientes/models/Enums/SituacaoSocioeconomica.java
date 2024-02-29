@@ -15,6 +15,6 @@ public class SituacaoSocioeconomica {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idSituacaoSocioeconomica;
 
-    @Column(length = 30)
+    @Column(length = 30, unique = true)
     private String nome;
 }

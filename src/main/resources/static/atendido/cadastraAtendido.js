@@ -33,11 +33,14 @@ function getAtendido() {
 
     let tipoCancro = document.getElementById("tipoCancro").value;
 
+    let tratamento = document.getElementById("tratamento").value;
+
     return {
         pessoa,
         endereco,
         "estagioDoenca": estagioDoenca,
         "tipo_cancro": tipoCancro,
+        "tratamento": tratamento,
     };
 
 }
