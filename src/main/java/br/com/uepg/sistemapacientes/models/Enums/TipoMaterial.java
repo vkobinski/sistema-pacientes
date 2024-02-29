@@ -13,7 +13,7 @@ public class TipoMaterial {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idTipoMaterial;
 
-    @Column(length = 30)
+    @Column(length = 30, unique = true)
     private String nome;
 
     private int quantidadeTotal;

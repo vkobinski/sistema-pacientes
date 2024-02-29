@@ -14,7 +14,7 @@ public class TipoAlimento {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idTipoAlimento;
 
-    @Column(length = 30)
+    @Column(length = 30, unique = true)
     @Length(min = 1)
     private String nome;
 }

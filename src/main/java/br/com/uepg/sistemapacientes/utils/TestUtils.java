@@ -51,15 +51,26 @@ public class TestUtils {
         this.tipoRecursoRepository = tipoRecursoRepository;
     }
 
+    public String getString(String newString) {
+        final int size = 20;
+
+        int finalSize = size;
+
+        if(newString.length() < 20) finalSize = newString.length()-1;
+
+        return newString.substring(0, finalSize);
+    }
+
     public cEndereco generateEndereco() {
         cEndereco endereco = new cEndereco();
 
-        endereco.setLogradouro(faker.address().streetAddress());
-        endereco.setBairro(faker.address().secondaryAddress());
-        endereco.setComplemento(faker.address().buildingNumber());
-        endereco.setPontoReferencia(faker.address().lastName());
-        endereco.setNomeCidade(faker.address().cityName());
-        endereco.setNomeEstado(faker.address().state());
+
+        endereco.setLogradouro(getString(faker.address().streetAddress()));
+        endereco.setBairro(getString(faker.address().secondaryAddress()));
+        endereco.setComplemento(getString(faker.address().buildingNumber()));
+        endereco.setPontoReferencia(getString(faker.address().lastName()));
+        endereco.setNomeCidade(getString(faker.address().cityName()));
+        endereco.setNomeEstado(getString(faker.address().state()));
         endereco.setCep("1234567");
 
         enderecoRepository.save(endereco);
@@ -117,6 +128,7 @@ public class TestUtils {
         atendido.setEstagioDoenca(generateEstagioDoenca());
         atendido.setTipo_cancro(faker.ancient().hero());
         atendido.setEmprestimos(null);
+        atendido.setTratamento(faker.ancient().god());
 
         return atendido;
     }
@@ -160,7 +172,6 @@ public class TestUtils {
         hospede.setDataEntrada(new java.sql.Date(faker.date().birthday().getTime()));
         hospede.setDataSaida(new java.sql.Date(faker.date().birthday().getTime()));
         hospede.setQuartoHospedagem(generateQuartoHospedagem());
-        hospede.setTratamento(faker.ancient().god());
         hospede.setHorarioTratamento(new Time(Instant.now().getEpochSecond()));
         hospede.setTipoRefeicao(generateTipoRefeicao());
 

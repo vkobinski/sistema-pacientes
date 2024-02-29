@@ -18,7 +18,7 @@ public class EstagioDoenca {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idEstagioDoenca;
 
-    @Column(length = 30)
+    @Column(length = 30, unique = true)
     @Length(min = 1)
     private String nome;
 

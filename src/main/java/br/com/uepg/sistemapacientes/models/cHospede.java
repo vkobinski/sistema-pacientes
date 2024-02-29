@@ -31,9 +31,6 @@ public class cHospede extends cAtendido{
     private QuartoHospedagem quartoHospedagem;
 
     @Column
-    private String tratamento;
-
-    @Column
     private Time horarioTratamento;
 
     @ManyToOne
@@ -41,6 +38,7 @@ public class cHospede extends cAtendido{
     private TipoRefeicao tipoRefeicao;
 
     public cHospede(cAtendido atendido) {
+        this.setTratamento(atendido.getTratamento());
         this.setId_pessoa(atendido.getId_pessoa());
         this.setRg(atendido.getRg());
         this.setAtivo(atendido.getAtivo());

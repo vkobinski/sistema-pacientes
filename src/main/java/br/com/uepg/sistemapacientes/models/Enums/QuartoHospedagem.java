@@ -17,6 +17,6 @@ public class QuartoHospedagem {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idQuartoHospedagem;
 
-    @Column(length = 30)
+    @Column(length = 30, unique = true)
     private String nome;
 }

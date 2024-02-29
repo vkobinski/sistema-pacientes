@@ -19,7 +19,16 @@ public class cVoluntaria {
     private Long id_voluntaria;
 
     @Length(min = 1)
-    @Column(length = 30, unique = true)
+    @Column(length = 30)
     private String nome;
+
+    @Length(min = 1)
+    @Column(length = 40)
+    private String contato;
+
+    @Length(min = 1)
+    @Column(length = 40)
+    private String setor;
+
 
 }

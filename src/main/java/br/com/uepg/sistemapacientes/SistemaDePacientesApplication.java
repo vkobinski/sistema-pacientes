@@ -119,20 +119,20 @@ public class SistemaDePacientesApplication {
 					tipoRefeicaoRepository,
                     medicamentoRepository, alimentoRepository, cabeloRepository, materialRepository, roupaRepository, tipoRecursoRepository);
 
-			//test.generateRandomPaciente();
-			//test.generateRandomPaciente();
-			//test.generateRandomPaciente();
+			test.generateRandomPaciente();
+			test.generateRandomPaciente();
+			test.generateRandomPaciente();
 
-			//test.generateRandomHospede();
-			//test.generateRandomHospede();
-			//test.generateRandomHospede();
+			test.generateRandomHospede();
+			test.generateRandomHospede();
+			test.generateRandomHospede();
 
-			//test.generateRandomFamiliar();
-			//test.generateRandomFamiliar();
-			//test.generateRandomFamiliar();
+			test.generateRandomFamiliar();
+			test.generateRandomFamiliar();
+			test.generateRandomFamiliar();
 
-			//test.generateMedicamento();
-			//test.generateRoupa();
+			test.generateMedicamento();
+			test.generateRoupa();
 		};
 	}
 }

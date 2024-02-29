@@ -18,6 +18,7 @@ public class cPaciente extends cAtendido{
     private int nivel_prioridade;
 
     public cPaciente(cAtendido atendido) {
+        this.setTratamento(atendido.getTratamento());
         this.setId_pessoa(atendido.getId_pessoa());
         this.setRg(atendido.getRg());
         this.setAtivo(atendido.getAtivo());
