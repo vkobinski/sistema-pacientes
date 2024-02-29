@@ -46,7 +46,7 @@ select {
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 200px;
+  height: fit-content;
   background: #ffd7de;
   border-top-left-radius: 46px;
   border-top-right-radius: 46px;
